@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式测试工具/常用正则表达式/正则代码生成 - 在线工具</title>
+	<link rel="search" type="application/opensearchdescription+xml" title="在线工具" href="http://tool.lu/opensearch.xml">
+	<meta property="wb:webmaster" content="b937d84f38f5d296">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="author" content="iteam">
+	<link rel="publisher" href="https://plus.google.com/113621341737546487026">
+	<meta name="keywords" content="正则表达式测试工具,常用正则表达式,java python php js正则代码生成">
+	<meta name="description" content="正则表达式测试工具,常用正则表达式,java python php js正则代码生成">
+	<link rel="shortcut icon" href="http://tool.lu/favicon2.ico">
+	<!--[if lt IE 9]>
+	<script src="//s1.tool.lu/??js/html5shiv.js,js/es5-shim.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="//s2.tool.lu/??css/font-awesome.min.css,css/style.css,css/g-nav.css,js/tipsy.css,js/flavr/css/animate.css,js/flavr/css/flavr.min.css?t=1408204203270">
+	<script src="//analytics.tool.lu/te.js" crossorigin></script>
+	<script src="//s3.tool.lu/??js/jquery.min.js,js/jquery-ui.min.js,js/underscore-min.js,js/jquery.topLink.js,js/jquery.iefixer.js,js/jquery.generateFile.js,js/flavr/js/flavr.min.js,js/zeroclipboard/ZeroClipboard.min.js,js/jquery.fullscreen.js,js/jquery.tipsy.js,js/jquery-scrolltofixed-min.js,js/mousetrap.min.js,js/helpers.js,js/base.js?t=1405851179496"></script>
+	<link rel="stylesheet" href="//s4.tool.lu/js/regexpal/regexpal.css"></head>
+<body>
+<!--[if lte IE 8]>
+    <div class="notice chromeframe">您的浏览器版本<strong>很旧很旧</strong>，为了正常地访问网站，请升级您的浏览器 <a target="_blank" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<div class="g-nav clearfix">
+  <ul>
+    <li><a href="http://type.so/">技术</a></li>
+    <li class="hidden-xs"><a href="http://tool.lu/">在线工具</a></li>
+    <!-- <li><a href="javascript:;" class="smartsearch-trigger"><i class="fa fa-search"></i> 工具集合</a></li> -->
+	<li class="hidden-xs" style="float: right;"><a href="javascript:addToFavorite()" rel="nofollow">收藏工具</a></li>
+  </ul>
+</div>
+<div id="wrap">
+	<div id="hdr">
+		<div class="w">
+			<a class="logo" rel="nofollow" href="http://tool.lu/">在线工具</a>
+			<h1 class="hidden">正则表达式测试工具 | 常用正则表达式 | java python php js正则代码生成</h1>
+			<form name="search" id="srch" class="hidden-xs hidden-sm" action="http://tool.lu/search/" method="GET">
+				<input type="text" class="text" name="query" value="" placeholder="搜索其实很简单">
+				<button type="submit">搜索</button>
+			</form>
+			<p class="nav" id="js_login_bar">
+							<a class="js-login" href="http://plus.tool.lu/user/login?redirect=%2Fregex%2F">登录</a> <a href="http://plus.tool.lu/user/register">开放注册</a>
+			</p>
+		</div>
+	</div>
+	<div id="nav">
+		<div class="w">
+			<div class="nav-inner clearfix">
+				<ul class="clearfix" style="float: left;">
+					<li class="active"><a href="http://tool.lu/" rel="nofollow">所有</a></li>
+										<li class="hidden-xs "><a href="/c/developer">开发类</a></li>
+										<li class="hidden-xs "><a href="/c/webmaster">站长类</a></li>
+										<li class="hidden-xs "><a href="/c/geek">极客类</a></li>
+										<li class="hidden-xs "><a href="/c/other">其它</a></li>
+										<li><a href="http://tool.lu/site/" style="color: #8E44AD;">文库</a></li>
+					<li><a href="http://tool.lu/tip/" style="color: #E74C3C;">奇技淫巧</a></li>
+					<li class="hidden-xs "><a href="http://tool.lu/software/" style="color: #F39C12;">软件推荐</a></li>
+				</ul>
+				<ul class="clearfix hidden-xs hidden-sm" style="float: right;">
+					<li><a target="_blank" rel="nofollow" style="color: #2c3e50;" href="http://koubei.baidu.com/s/tool.lu?tab=comt&amp;praise=good&amp;sort=time-desc">感觉不错？赏个赞吧！</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="bdy">
+		<div class="w">
+	<div class="main">
+		<div class="inner">
+			<div id="options">
+				<label for="flagG" class="hidden"><input id="flagG" type="checkbox" checked="checked"/>全部(g)</label>
+				<label for="flagI"><input id="flagI" type="checkbox"/>不区分大小写(i)</label> 
+				<label for="flagM"><input id="flagM" type="checkbox"/>多行(m)</label>
+				<label for="flagS"><input id="flagS" type="checkbox"/>单行(s)</label>
+				<input id="highlightSyntax" class="hidden" type="checkbox" checked="checked"/>
+				<input id="highlightMatches" class="hidden" type="checkbox" checked="checked"/>
+				<input id="invertMatches" class="hidden" type="checkbox"/>
+				<!-- <a class="dropdown" href="#">常用正则</a> -->
+			</div>
+			<div id="commonRegex" class="clearfix">
+				<div class="hd">常用正则：</div>
+				<ul class="bd">
+          <li><a href="#" data-regex="\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}">匹配邮箱</a></li>
+					<li><a href="#" data-regex="[\u4e00-\u9fa5]">匹配中文</a></li>
+					<li><a href="#" data-regex="[^\x00-\xff]">匹配双字节字符（包含汉字）</a></li>
+					<li><a href="#" data-regex="([01]?\d|2[0-3]):[0-5]?\d:[0-5]?\d">匹配时间（时:分:秒）</a></li>
+					<li><a href="#" data-regex="(\d+)\.(\d+)\.(\d+)\.(\d+)">匹配IP（IPV4）</a></li>
+					<li><a href="#" data-regex="\d{15}|\d{17}[0-9Xx]">匹配身份证</a></li>
+					<li><a href="#" data-regex="((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))">匹配日期（年-月-日）</a></li>
+					<li><a href="#" data-regex="((((1[6-9]|[2-9]\d)\d{2})/(0?[13578]|1[02])/(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})/(0?[13456789]|1[012])/(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))">匹配日期（年/月/日）</a></li>
+					<li><a href="#" data-regex="[1-9]\d*">匹配正整数</a></li>
+					<li><a href="#" data-regex="-[1-9]\d*">匹配负整数</a></li>
+					<li><a href="#" data-regex="(13\d|14[57]|15[^4,\D]|17[678]|18\d)\d{8}|170[059]\d{7}">匹配手机号</a></li>
+				</ul>
+			</div>
+			<div id="search" class="smartField">
+				<textarea cols="100" rows="3" tabindex="1">\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}</textarea>
+			</div>
+			<div class="clearfix" style="padding: 5px 0;">
+				<button type="button" id="generate" data-url="http://tool.lu/regex/ajax.html">生成程序代码</button>
+			</div>
+			<div id="input" class="smartField">
+				<textarea cols="100" rows="10" tabindex="2">下面是一些测试实例:
+history: v1.0 正则表达式测试工具上线
+         v1.1 2012-03-25 修复高亮偏移错位的问题
+         v1.2 2014-06-15 增加生成程序代码的功能
+         v1.3 2014-09-04 增加java代码的生成，修正邮箱的匹配
+             1. 截至目前为止，最长域名后缀 .cancerresearch
+todo: 加上一些常用的正则表达式
+notice: 由于我们使用的是js的正则引擎，所以暂时还不能支持逆序环视
+demo@qq.com
+test-demo@vip.qq.com
+i+box@gmail.com
+demo@live.com
+127.0.0.1
+http://tool.lu/
+123456789012345
+16:09:22</textarea>
+			</div>
+			<p>阿里云9折码 <kbd>MU3RAO</kbd></p><script>
+(function(){
+var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=http%3A%2F%2Ftool.lu%2Fregex%2F&brandline=y&ralateuid=1650067892&appkey=576866350&dpc=1";
+document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+})();
+</script>
+<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" charset="utf-8"></script>
+<script>
+window.WBComment.init({
+    "id": "WBCommentFrame"
+});
+</script>		</div>
+	</div>
+	<div class="overlay" style="display: none;"><button class="overlay-close" type="button">x</button><div class="overlay-content"></div></div>
+	<script id="entry_template" type="text/x-handlebars-template">
+		<div style="overflow: auto; max-height: 350px; text-align: left;">
+		{{#each code}}
+		<p class="desc">{{@key}}</p>
+		<pre class="language-{{@key}}" style="max-width: 700px; overflow: auto;">{{{this}}}</pre>
+		{{/each}}
+		</div>
+	</script>
+	<link rel="stylesheet" href="//s1.tool.lu/??js/highlight/styles/github.css">
+	<script src="//s2.tool.lu/??js/handlebars-v1.3.0.js,js/highlight/highlight.pack.js,js/regex/main.js"></script>
+			<div class="aside hidden-xs hidden-sm">
+				<div class="inner mgb10">
+										<input id="shorturl" type="text" readonly value="http://tool.lu/regex/" data-clipboard-text="http://tool.lu/regex/" data-copy-hint="点击拷贝" data-copied-hint="已拷贝">
+					<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdSign":"on","bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+				</div>
+								<div class="inner mgb10">
+					<div class="panel">
+						<div class="panel-heading">
+							<a title="喜欢" class="likeable" href="javascript:;" data-id="9"><i class="icon like"></i><var>459</var>人喜欢</a>
+						</div>
+						<div class="panel-body">
+																							<span class="author-info"><a target="_blank" href="http://type.so/author/3/">xiaozi</a> <i class="medal-zz"></i></span>
+																							<span class="author-info"><a target="_blank" href="http://type.so/">xiaosong</a> <i class="medal-ds"></i></span>
+													</div>
+					</div>
+				</div>
+				<script>
+				(function($) {
+					var running = false;
+					$('a.likeable').on('click', function(e) {
+						e.preventDefault();
+						if (running) return;
+						running = true;
+						var like = $(this);
+						$.post("http://tool.lu/like.html", {id: like.data('id')}, function(data) {
+							if(data.status) {
+								like.find('i.icon').removeClass('like').addClass('liked');
+								like.find('var').text(data.text);
+							}
+							running = false;
+						}, 'json');
+					});
+				})(jQuery);
+				</script>
+								<div class="adsense inner mgb10">
+					<script>
+					/*200*200，创建于2014-6-26*/
+					var cpro_id = "u2345421";
+					</script>
+					<script src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+				</div>
+				<div class="note">
+					<div class="note-container">
+						我们都不自觉的在很多事情上喜欢和人家比，这样会活得很累。人最大的敌人其实是自己，和别人比不如和自己比。不要拿别人的标准来衡量折磨自己，每个人都有他自己的人生轨迹，努力了就好！遇到别人不公正的评论，只要不伤及到你个人的尊严，那就让他说去吧！人生百态，各具千秋，怀一颗平常心就会快乐！					</div>
+					<div class="note-bottom"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="ftr">
+		<div class="w">
+			<p class="declare">
+				<a href="mailto:245565986@qq.com">联系我们</a> - <a rel="nofollow" href="http://tool.lu/">工具首页</a> - <a href="http://tool.lu/about.html">关于我们</a> -
+				<script>
+				(function() {
+					var protocol = 'https:' == document.location.protocol ? 'https://' : 'http://';
+					document.write(unescape("%3Cscript src='" + protocol + "hm.baidu.com/h.js%3F0fba23df1ee7ec49af558fb29456f532'%3E%3C/script%3E"));
+					var _timer,
+					    _fold = false;
+					$('.dropdown').on('mouseenter mouseleave', function(e){
+						var _this = $(this),
+							_toolList = $('.toolList');
+						if (e.type === 'mouseenter') {
+							_timer = setTimeout(function(){
+								_toolList.stop(1,1).slideDown({duration: 300});
+								_this.width(450);
+								_fold = true;
+							}, 100);
+						} else {
+							if (!_fold && _timer) {
+								clearTimeout(_timer);
+							} else {
+								_toolList.stop(1,1).slideUp({duration: 300});
+								_this.width('auto');
+								_fold = false;
+							}
+						}
+					});
+				})();
+				</script>
+			<br>
+			Copyright &copy; 2011-2015 <a href="http://type.so/" target="_blank">iteam</a>. All Rights Reserved. Current version is <a style="color: #009a61;" href="http://tool.lu/changelog.html">2.25.5</a>.
+			<br>
+			浙ICP备14020137号 
+			<a href="http://tool.lu/visitor/">$访客城市分布$</a>
+			</p>
+		</div>
+	</div>
+</div>
+<!--
+<div class="smartsearch-overlay">
+	<div class="js-smartsearch-modal smartsearch-modal">
+		<form action="http://tool.lu/search/" method="GET">
+			<div class="smartsearch-header">
+				<input class="js-smartsearch-input" type="search" name="query" value="" placeholder="输入关键词搜索...">
+			</div>
+			<div class="js-smartsearch-result"></div>
+		</form>
+	</div>
+</div>
+-->
+<div id="t_fixed">
+	<a target="_blank" class="btn qq-qun js-tip" href="http://shang.qq.com/wpa/qunwpa?idkey=566d9b8d6853c8609d659d36c33e78c201d93c1a25de1219f898e7a93529f2ee" title="QQ群: 174157258">174157258</a>
+	<a target="_blank" class="btn weibo js-tip" href="http://weibo.com/245565986" title="微博: 小子欠扁">小子欠扁</a>
+	<a target="_blank" class="btn github js-tip" href="https://github.com/xiaozi" title="github: xiaozi"></a>
+	<a class="btn gotop js-tip" href="javascript:;" onclick="window.scrollTo('0','0')" title="返回顶部">返回顶部</a>
+</div>
+<script id="login_modal" type="text/template">
+	<div class="form-row">
+		<input type="text" name="email" value="" placeholder="Email">
+	</div>
+	<div class="form-row">
+		<input type="password" name="password" value="" placeholder="Password">
+	</div>
+	<div class="form-row">
+		<input type="checkbox" id="remember" name="remember">
+		<label for="remember">记住我</label>
+		<a target="_blank" href="http://plus.tool.lu/user/forgot">忘记密码？</a>
+	</div>
+</script>
+<script src="//s3.tool.lu/??js/regexpal/xregexp.js,js/regexpal/helpers.js,js/regexpal/regexpal.js,js/regexpal/common.js"></script><script>
+(function(){var a=document.createElement("script");a.async=!0;a.src=("https:"==document.location.protocol?"https:":"http:")+"//analytics.tool.lu/ta.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();
+</script>
+</body>
+</html>
