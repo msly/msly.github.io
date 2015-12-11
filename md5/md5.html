@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="md5.min.js"></script>
+</head>
+<body>
+	<p>输入字符<input type="text" id="intext"/><input type="button" onclick="encode()" value="md5加密" /></p>
+	<p>加密结果<input type="text" id="result"/>
+
+	<script type="text/javascript">
+	function encode(){
+		var intext = document.getElementById("intext").value;
+		document.getElementById("result").value = md5(intext);
+	}
+	</script>
+</body>
+</html>
