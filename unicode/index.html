@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-language" content="zh-CN" />
+<title>在线编码解码_911查询</title>
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link href="css/20131127.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta name="keywords" content="在线,编码,解码" />
+</head>
+
+<body>
+<div id="header"><h1>在线编码解码</h1><span>在线编码解码 bianma.911cha.com</span></div>
+<div id="mainbox">
+	<div class="leftbox">
+		<div class="panel">
+			<div class="mtitle"><div class="fleft"><a href="http://www.911cha.com/">首页</a> &gt; 在线编码解码</div></div>
+			<div class="mcon">
+<script type="text/javascript" src="js/punycode.js"></script>
+<script type="text/javascript" src="js/strutil.js"></script>
+<script type="text/javascript" src="js/sjis_map.js"></script>
+<script type="text/javascript" src="js/iso88591_map.js"></script>
+<script type="text/javascript" src="js/added.js"></script>
+<p class="l200">在线编码解码器。在下面的输入框中输入你想编码解码的字符串即可。<br /><strong>文本格式</strong><br />
+<textarea cols="80" rows="5" id="string" onkeyup="javascript:updateByString(this.value)"></textarea><br />
+<strong>\uXXXX</strong><br />
+<textarea cols="80" rows="5" id="utf16-escape"onkeyup="javascript:updateByUtf16(this.value)"></textarea><br />
+<strong>\UXXXXXXXX</strong><br />
+<textarea cols="80" rows="5" id="utf32-escape" onkeyup="javascript:updateByUtf32(this.value)"></textarea><br />
+<strong>&amp;#DDDD;</strong><br />
+<textarea cols="80" rows="5" id="numref-dec" onkeyup="javascript:updateByNumRefDec(this.value)"></textarea><br />
+<strong>&amp;#xXXXX;</strong><br />
+<textarea cols="80" rows="5" id="numref-hex" onkeyup="javascript:updateByNumRefHex(this.value)"></textarea><br />
+<strong>Punycode</strong><br />
+<textarea cols="80" rows="5" id="punycode" onkeyup="javascript:updateByPunyCode(this.value)"></textarea></p><p class="l200">
+<form class="encoding"><strong>选择你需要的编码方式</strong><br />
+<select id="encoding" onchange="javascript:updateByForm()"><option value="UTF-8">UTF-8</option><option value="Shift_JIS">Shift_JIS</option><option value="EUC-JP">EUC-JP</option><option value="ISO-2022-JP">ISO-2022-JP</option><option value="ISO-8859-1">ISO-8859-1</option></select>
+</form>
+<strong>\xXX</strong><br />
+<textarea cols="80" rows="5" id="hex-escape" onkeyup="javascript:updateByHex(this.value)"></textarea><br />
+<strong>\OOO</strong><br />
+<textarea cols="80" rows="5" id="oct-escape"onkeyup="javascript:updateByOct(this.value)"></textarea><br />
+<strong>Base64</strong><br />
+<textarea cols="80" rows="5" id="base64" onkeyup="javascript:updateByBase64(this.value)"></textarea><br />
+<strong>Quoted-printable</strong><br />
+<textarea cols="80" rows="5" id="quoted-printable" onkeyup="javascript:updateByQuotedPrintable(this.value)"></textarea><br />
+<strong>URL</strong><br />
+<textarea cols="80" rows="5" id="url" onkeyup="javascript:updateByUrl(this.value)"></textarea><br />
+<strong>MIME + Base64</strong><br />
+<textarea cols="80" rows="5" id="mime-b" onkeyup="javascript:updateByMimeBase64(this.value)"></textarea><br />
+<strong>MIME + Quoted-printable</strong><br />
+<textarea cols="80" rows="5" id="mime-q" onkeyup="javascript:updateByMimeQuotedPrintable(this.value)"></textarea></p>
+			</div>
+		</div><div class="cboth"></div>
+	</div>
+	<div class="cboth"></div>
+</div>
+<div id="allcha" style="margin:0 0 8px 0"></div>
+
+
+</body>
+</html>
