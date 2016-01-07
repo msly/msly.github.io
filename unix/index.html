@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>unix时间戳转换工具|unix时间戳在线计算|perl时间戳|php时间戳|mysql时间戳|python时间戳 - 站长工具|站长助手aosoo.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Robots" content="All" />
+<meta name="keywords" content="unix时间戳转换工具,unix时间戳在线计算" />
+<meta name="description" content="奥搜站长工具|站长助手提供给站长 unix时间戳转换工具,unix时间戳在线计算等站长工具." />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="http://msly.github.io/js/jquery.min.js"></script>
+<style type="text/css">
+.tbMain{width:700px;margin:10px auto;}
+.tbMain tr,td{text-align:center;}
+#tbContL{width:170px;height:22px;text-align:right;padding-right:10px;background:#E7E7E7;}
+#tbContR{width:510px;height:22px;text-align:left;padding-left:10px;background:#F6F6F6;}
+.btn{width:110px;height:40px;font-size:13px;margin:0px 2px;}
+#codeContent{width:680px;height:180px;margin:10px auto;border:#333 1px solid;padding:10px;background:#F9F9F9;}
+.norText{width:250px;height:23px;line-height:23px;text-align:center;}
+#currentunixtime{width:132px;height:23px;line-height:23px;text-align:center;color:#F00;}
+.shortText{width:40px;height:23px;line-height:23px;text-align:center;color:#F00;}
+#result{width:364px;height:23px;line-height:23px;text-align:center;}
+button{width:110px;height:40px;font-size:13px;margin:0px 2px;}
+</style>
+<script language="javascript">
+<!--
+
+// as start
+$(document).ready(function(){
+	$('.mainNav a').each(function(index){
+	var tag = index+1;
+	if(this.rel!= 1){
+		$(this).hover(function(){
+		onBg(tag,0);
+	},function(){onBg(tag,1);});
+	}});
+});
+function guideScrollBg(i,index,flag) {
+	var a=[-280,56,112,168,224];
+	var spans = $(".a" + index).find("span");
+	if(flag == 0){
+		spans.css("background-position",(-a[i]) + "px" + " " + (-5-((index-1)*40)) +"px");
+	}else{
+		a.sort(function(b,c){return c-b;});
+		spans.css("background-position",(-a[i]) + "px" + " " + (-5-((index-1)*40)) +"px");
+	}
+}
+function onBg(index,flag){
+	for(var i=0; i<5; i++){
+		setTimeout("guideScrollBg(" + i + "," + index +","+flag+")",40 * i);
+	}
+}
+// as end
+
+
+var currentTimeActive = 1;
+var unixTimer = 0;
+function unix2human(){
+    var unixTimeValue = new Date(document.unix2beijing.timestamp.value*1000);
+    beijingTimeValue = unixTimeValue.toLocaleString();
+	document.unix2beijing.result.value = beijingTimeValue;
+}
+
+function human2unix(){
+    var humanDate = new Date(Date.UTC(document.beijing2unix.year.value, (stripLeadingZeroes(document.beijing2unix.month.value)-1), stripLeadingZeroes(document.beijing2unix.day.value), stripLeadingZeroes(document.beijing2unix.hour.value), stripLeadingZeroes(document.beijing2unix.minute.value), stripLeadingZeroes(document.beijing2unix.second.value)));
+	document.beijing2unix.result.value = (humanDate.getTime()/1000-8*60*60);
+}
+
+function stripLeadingZeroes(input){
+    if((input.length > 1) && (input.substr(0,1) == "0")){
+		return input.substr(1);
+	}else{
+		return input;
+	}
+}
+
+function currentTime() {
+	var timeNow = new Date();
+	document.getElementById("currentunixtime").value = Math.round(timeNow.getTime()/1000);
+	if (currentTimeActive) {
+		unixTimer = setTimeout("currentTime()", 1000);
+	}
+}
+
+function startTimer(){
+	currentTimeActive = 1;
+	currentTime();
+}
+
+function stopTimer(){
+	currentTimeActive = 0;
+	clearTimeout(unixTimer);
+}
+$(function(){
+	currentTime();
+	var timeNow = new Date(); 
+	document.getElementById("firstTimestamp").value = Math.round(timeNow.getTime()/1000);
+})
+
+
+//-->
+</script>
+</head>
+ <body>
+  <div class="as">
+   <!--顶部-->
+   <div class="pub_logos">
+
+    <div class="pub_logos_r">
+     <div class="mainNav">
+      <a href="#" title="金" class="a1"><span></span>金</a>
+      <a href="#" title="木" class="a2"><span></span>木</a>
+      <a href="#" title="水" class="a3"><span></span>水</a>
+      <a href="#" title="火" class="a4"><span></span>火</a>
+      <a href="#" title="土" class="a5"><span></span>土</a>
+     </div>
+    </div>
+   </div>
+   <!--顶部-->
+   <!--中部-->
+   <div class="pub_mid">
+
+    <div class="pub_mid_r">
+     <div class="toolsResult" id="toolsResult">
+      <table cellspacing="0" class="tbMain">
+       <tbody>
+        <tr>
+         <td><h3>UNIX时间戳转换工具</h3></td>
+        </tr>
+        <tr>
+         <td> 现在的Unix时间戳(Unix timestamp)是： <input id="currentunixtime" type="text" style="width:100px" /><button onclick="startTimer();">开始</button><button onclick="stopTimer();">停止</button><button onclick="currentTime();">刷新</button></td>
+        </tr>
+        <tr>
+         <td><h3>Unix时间戳(Unix timestamp) → 北京时间</h3></td>
+        </tr>
+        <tr>
+         <td>
+          <form name="unix2beijing" action="">
+           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+             <tr>
+              <td style="text-align:right;width:180px;">Unix时间戳(Unix timestamp)：</td>
+              <td style="text-align:left;"><input value="1276934451" id="firstTimestamp" name="timestamp" type="text" class="norText" /><input value="转换" onclick="unix2human();" type="button" class="btn" /></td>
+             </tr>
+             <tr>
+              <td style="text-align:right;width:180px;">北京时间：</td>
+              <td style="text-align:left;"><input class="norText" value="2010年6月19日 15:59:56" id="result" name="result" readonly="readonly" type="text" onfocus="this.select()" /></td>
+             </tr>
+            </tbody>
+           </table>
+          </form></td>
+        </tr>
+        <tr>
+         <td><h3>北京时间 → Unix时间戳(Unix timestamp)</h3></td>
+        </tr>
+        <tr>
+         <td>
+          <form name="beijing2unix">
+           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+             <tr>
+              <td style="text-align:right;width:180px;">北京时间：</td>
+              <td style="text-align:left;"><input class="shortText" name="year" maxlength="4" type="text" /> 年 <input class="shortText" name="month" maxlength="2" type="text" /> 月 <input class="shortText" name="day" maxlength="2" type="text" /> 日 <input class="shortText" name="hour" maxlength="2" type="text" /> 时 <input class="shortText" name="minute" maxlength="2" type="text" /> 分 <input class="shortText" name="second" maxlength="2" type="text" /> 秒 </td>
+              <td rowspan="2" style="text-align:left;"><input value="转换" class="btn" onclick="human2unix();" type="button" /></td>
+             </tr>
+             <tr>
+              <td style="text-align:right;">Unix时间戳：</td>
+              <td style="text-align:left;"><input name="result" id="result" readonly="readonly" type="text" onfocus="this.select()" /></td>
+             </tr>
+            </tbody>
+           </table>
+          </form></td>
+        </tr>
+        <tr>
+         <td><h3>如何在不同编程语言中获取现在的Unix时间戳(Unix timestamp)？</h3></td>
+        </tr>
+        <tr>
+         <td>
+          <table class="tbMain" border="0" cellspacing="0" cellpadding="0">
+           <tbody>
+            <tr>
+             <td id="tbContL">Java</td>
+             <td id="tbContR">time</td>
+            </tr>
+            <tr>
+             <td id="tbContL">JavaScript</td>
+             <td id="tbContR">Math.round(new Date().getTime()/1000)<span>getTime()返回数值的单位是毫秒</span></td>
+            </tr>
+            <tr>
+             <td id="tbContL">Microsoft .NET / C#</td>
+             <td id="tbContR">epoch = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000</td>
+            </tr>
+            <tr>
+             <td id="tbContL">MySQL</td>
+             <td id="tbContR">SELECT unix_timestamp(now())</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Perl</td>
+             <td id="tbContR">time</td>
+            </tr>
+            <tr>
+             <td id="tbContL">PHP</td>
+             <td id="tbContR">time()</td>
+            </tr>
+            <tr>
+             <td id="tbContL">PostgreSQL</td>
+             <td id="tbContR">SELECT extract(epoch FROM now())</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Python</td>
+             <td id="tbContR"><span>先</span> import time <span>然后</span> time.time()</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Ruby</td>
+             <td id="tbContR"><span>获取Unix时间戳：</span>Time.now <span>或</span> Time.new<br /><span>显示Unix时间戳：</span>Time.now.to_i </td>
+            </tr>
+            <tr>
+             <td id="tbContL">SQL Server</td>
+             <td id="tbContR">SELECT DATEDIFF(s,'1970-01-01 00:00:00',GETUTCDATE())</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Unix/Linux</td>
+             <td id="tbContR">date+%s</td>
+            </tr>
+            <tr>
+             <td id="tbContL">VBScript/ASP</td>
+             <td id="tbContR">DateDiff(&quot;s&quot;,&quot;01/01/1970 00:00:00&quot;,Now())</td>
+            </tr>
+            <tr>
+             <td id="tbContL">其他操作系统<br />(如果Perl被安装在系统中)</td>
+             <td id="tbContR"><span>命令行状态：</span>perl -e &quot;print time&quot;</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><h3>如何在不同编程语言中实现Unix时间戳(<i>Unix timestamp</i>) → 普通时间？</h3></td>
+        </tr>
+        <tr>
+         <td>
+          <table class="tbMain" border="0" cellspacing="0" cellpadding="0">
+           <tbody>
+            <tr>
+             <td id="tbContL">Java</td>
+             <td id="tbContR">String date = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy HH:mm:ss&quot;).format(new java.util.Date(<u>Unix timestamp</u> * 1000))</td>
+            </tr>
+            <tr>
+             <td id="tbContL">JavaScript</td>
+             <td id="tbContR"><span>先</span> var unixTimestamp = new Date(<u>Unix timestamp</u>*1000)<span>然后</span>commonTime = unixTimestamp.toLocaleString()</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Linux</td>
+             <td id="tbContR">date -d @<u>Unix timestamp</u></td>
+            </tr>
+            <tr>
+             <td id="tbContL">MySQL</td>
+             <td id="tbContR">from_unixtime(<u>Unix timestamp</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Perl</td>
+             <td id="tbContR"><span>先</span>my $time = <u>Unix timestamp</u><span>然后</span>my($sec,$min,$hour,$day,$month, $year) = (localtime($time))[0,1,2,3,4,5,6]</td>
+            </tr>
+            <tr>
+             <td id="tbContL">PHP</td>
+             <td id="tbContR">date('r', <u>Unix timestamp</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">PostgreSQL</td>
+             <td id="tbContR">SELECT TIMESTAMP WITH TIME ZONE 'epoch' + <u>Unix timestamp</u>) * INTERVAL '1 second';</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Python</td>
+             <td id="tbContR"><span>先</span> import time <span>然后</span> time.gmtime(<u>Unix timestamp</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Ruby</td>
+             <td id="tbContR">Time.at(<u>Unix timestamp</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">SQL Server</td>
+             <td id="tbContR">DATEADD(s,<u>Unix timestamp</u>,'1970-01-01 00:00:00')</td>
+            </tr>
+            <tr>
+             <td id="tbContL">VBScript/ASP</td>
+             <td id="tbContR">DateAdd(&quot;s&quot;,<u>Unix timestamp</u>,&quot;01/01/1970 00:00:00&quot;)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">其他操作系统<br />(如果Perl被安装在系统中)</td>
+             <td id="tbContR"><span>命令行状态：</span>perl -e &quot;print scalar(localtime(<u>Unix timestamp</u>))&quot;</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><h3>如何在不同编程语言中实现普通时间 → Unix时间戳(<i>Unix timestamp</i>)？</h3></td>
+        </tr>
+        <tr>
+         <td>
+          <table class="tbMain" border="0" cellspacing="0" cellpadding="0">
+           <tbody>
+            <tr>
+             <td id="tbContL">Java</td>
+             <td id="tbContR">long epoch = new java.text.SimpleDateFormat(&quot;<u>dd/MM/yyyy HH:mm:ss</u>&quot;).parse(&quot;01/01/1970 01:00:00&quot;);</td>
+            </tr>
+            <tr>
+             <td id="tbContL">JavaScript</td>
+             <td id="tbContR">var commonTime = new Date(Date.UTC(<u>year</u>,<u>month</u> -1,<u>day</u>,<u>hour</u>,<u>minute</u>,<u>second</u>))</td>
+            </tr>
+            <tr>
+             <td id="tbContL">MySQL</td>
+             <td id="tbContR">SELECT unix_timestamp(<u>time</u>)<br /><span>时间格式: YYYY-MM-DD HH:MM:SS 或 YYMMDD 或 YYYYMMDD</span></td>
+            </tr>
+            <tr>
+             <td id="tbContL">Perl</td>
+             <td id="tbContR"><span>先</span> use Time::Local <span>然后</span>my $time = timelocal($sec,$min,$hour,$day,$month,$year);</td>
+            </tr>
+            <tr>
+             <td id="tbContL">PHP</td>
+             <td id="tbContR">mktime(<u>hour</u>,<u>minute</u>,<u>second</u>,<u>day</u>,<u>month</u>,<u>year</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">PostgreSQL</td>
+             <td id="tbContR">SELECT extract(epoch FROM date('<u>YYYY-MM-DD HH:MM:SS</u>'));</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Python</td>
+             <td id="tbContR"><span>先</span> import time <span>然后</span>int(time.mktime(time.strptime('<u>YYYY-MM-DD HH:MM:SS</u>','%Y-%m-%d %H:%M:%S')))</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Ruby</td>
+             <td id="tbContR">Time.local(<u>year</u>,<u>month</u>,<u>day</u>,<u>hour</u>,<u>minute</u>,<u>second</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">SQL Server</td>
+             <td id="tbContR">SELECT DATEDIFF(s,'1970-01-01 00:00:00',<u>time</u>)</td>
+            </tr>
+            <tr>
+             <td id="tbContL">Unix/Linux</td>
+             <td id="tbContR">date +%s -d&quot;Jan 1, 1970 00:00:01&quot;</td>
+            </tr>
+            <tr>
+             <td id="tbContL">VBScript/ASP</td>
+             <td id="tbContR">DateDiff(&quot;s&quot;,&quot;01/01/1970 00:00:00&quot;,<u>time</u>)</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <!--中部-->
+   <!--底部-->
+   <!--底部-->
+   <div class="pub_bom clear"> 
+   </div> 
+  </div> 
+ </body>
+</html>
