@@ -3,7 +3,13 @@
   
   <url>
     <loc>http://msly.github.io/</loc>
+    <lastmod>2016-04-06T11:40:51+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://msly.github.io/about/</loc>
+    <lastmod>2016-04-06T11:40:51+08:00</lastmod>
   </url>
   
 </urlset>
