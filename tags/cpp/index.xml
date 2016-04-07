@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on Home</title>
+    <link>http://msly.github.io/tags/cpp/</link>
+    <description>Recent content in Cpp on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>msly.2008@gmail.com (msly)</managingEditor>
+    <webMaster>msly.2008@gmail.com (msly)</webMaster>
+    <copyright>code with &lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt; (c) 2016 copyright.</copyright>
+    <lastBuildDate>Thu, 07 Apr 2016 11:44:37 +0800</lastBuildDate>
+    <atom:link href="http://msly.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>自己动手编写一个简单的解释器 Part 7</title>
+      <link>http://msly.github.io/2016/04/07/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</link>
+      <pubDate>Thu, 07 Apr 2016 11:44:37 +0800</pubDate>
+      <author>msly.2008@gmail.com (msly)</author>
+      <guid>http://msly.github.io/2016/04/07/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</guid>
+      <description>&lt;p&gt;原文:&lt;a href=&#34;https://ruslanspivak.com/lsbasi-part7/&#34;&gt;Let’s Build A Simple Interpreter. Part 7.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;C++代码:&lt;a href=&#34;https://github.com/msly/compiler/tree/master/second&#34;&gt;https://github.com/msly/compiler/tree/master/second&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;应上次之约，今天我将讲一个在以后的章节会经常使用的，重要的数据结构。所以大家系好安全带（做好准备），让我们开始吧。&lt;/p&gt;
+
+&lt;p&gt;到目前为止，我们把解释器和解析器的代码混在一起，一旦解析器构建好某种语法结构，比如加法、减法、乘法或除法,解释器就计算该表达式的结果(译者:通过parser来触发interpreter执行).这种解释器被称为语法导向的解释器.他们通常是单一的输入，适用于基本的语言的应用程序。为了分析更复杂的Pascal程序语言结构，我们需要建立一个中间表示(IR)。我们的解析器负责构建IR，解释器将用来解释这个IR输入。&lt;/p&gt;
+
+&lt;p&gt;事实证明，树是一个非常合适的数据结构用来表示IR。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
