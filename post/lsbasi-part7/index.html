@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> about &middot; 个人博客 </title>
+  <title> 自己动手编写一个简单的解释器 Part 7 &middot; 个人博客 </title>
 
   
   <link rel="stylesheet" href="http://msly.github.io/css/poole.css">
@@ -57,22 +57,26 @@
 
 		<div class="content container">
 			<div class="post">
-			 	<h1>about</h1>
-			  <span class="post-date">Wed, Apr 6, 2016</span>
-			      
+			 	<h1>自己动手编写一个简单的解释器 Part 7</h1>
+			  <span class="post-date">Thu, Apr 7, 2016</span>
+			      <p>原文:<a href="https://ruslanspivak.com/lsbasi-part7/">Let’s Build A Simple Interpreter. Part 7.</a></p>
 
-<h1 id="关于:6083a88ee3411b0d17ce02d738f69d47">关于</h1>
+<p>C++代码:<a href="https://github.com/msly/compiler/tree/master/second">https://github.com/msly/compiler/tree/master/second</a></p>
 
-<hr />
+<p>应上次之约,今天我将讲一个在以后的章节会经常使用的,重要的数据结构.所以大家系好安全带,出发.</p>
 
-<p>基于Hugo搭建的博客平台.</p>
+<p>到目前为止,我们把解释器和解析器的代码混在一起,一旦解析器构建好某种语法结构,比如加法,减法,乘法或除法,解释器就计算该表达式的结果(译者:通过parser来触发interpreter执行).这种解释器被称为语法导向的解释器.他们通常是单一的输入,适用于基本的语言的应用程序.为了分析更复杂的Pascal程序语言结构,我们需要建立一个中间表示(IR).我们的解析器负责构建IR,解释器将用来解释这个IR输入.</p>
+
+<p>事实证明,树是一个非常合适的数据结构用来表示IR.</p>
+
+<p><img src="/images/lsbasi_part7_realtree.png" alt="lsbasi_part7_realtree.png" /></p>
 
 			</div>
 
 			
 				<h2>Comments</h2>
 				
-<div class="ds-thread" data-thread-key="" data-title="about" data-url="http://msly.github.io/about/"></div>
+<div class="ds-thread" data-thread-key="" data-title="自己动手编写一个简单的解释器 Part 7" data-url="http://msly.github.io/post/lsbasi-part7/"></div>
 
 
 

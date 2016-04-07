@@ -1,37 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>个人博客</title>
-    <link>http://msly.github.io/</link>
-    <description>Recent content on 个人博客</description>
+    <title>C on 个人博客</title>
+    <link>http://msly.github.io/tags/c/</link>
+    <description>Recent content in C on 个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Apr 2016 16:34:39 +0800</lastBuildDate>
-    <atom:link href="http://msly.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>常用web工具</title>
-      <link>http://msly.github.io/tools/</link>
-      <pubDate>Thu, 07 Apr 2016 16:34:39 +0800</pubDate>
-      
-      <guid>http://msly.github.io/tools/</guid>
-      <description>&lt;p&gt;网上搜集的几个常用的在线工具&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/md5&#34;&gt;md5计算&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/base64&#34;&gt;base64计算&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/json&#34;&gt;目前发现最好用的json格式化工具&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/calc&#34;&gt;calc计算器&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/unix&#34;&gt;unix时间戳转换&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/unicode&#34;&gt;unicode字符转换&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msly.github.io/regex&#34;&gt;regex正则验证&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
+    <lastBuildDate>Thu, 07 Apr 2016 11:44:37 +0800</lastBuildDate>
+    <atom:link href="http://msly.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>自己动手编写一个简单的解释器 Part 7</title>
@@ -50,22 +26,6 @@
 &lt;p&gt;事实证明,树是一个非常合适的数据结构用来表示IR.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>about</title>
-      <link>http://msly.github.io/about/</link>
-      <pubDate>Wed, 06 Apr 2016 11:40:51 +0800</pubDate>
-      
-      <guid>http://msly.github.io/about/</guid>
-      <description>
-
-&lt;h1 id=&#34;关于:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;关于&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;基于Hugo搭建的博客平台.&lt;/p&gt;
 </description>
     </item>
     
