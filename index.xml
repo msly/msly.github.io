@@ -8,7 +8,7 @@
     <language>en-us</language>
     <managingEditor>msly.2008@gmail.com (msly)</managingEditor>
     <webMaster>msly.2008@gmail.com (msly)</webMaster>
-    <copyright>code with &lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt; (c) 2016 copyright.</copyright>
+    <copyright>(c) 2016 copyright. Hugo [hyde-y]　code with &lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt;</copyright>
     <lastBuildDate>Thu, 07 Apr 2016 16:34:39 +0800</lastBuildDate>
     <atom:link href="http://msly.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -37,14 +37,14 @@
     </item>
     
     <item>
-      <title>自己动手编写一个简单的解释器 Part 7</title>
-      <link>http://msly.github.io/2016/04/07/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</link>
+      <title>[译]自己动手编写一个简单的解释器 Part 7</title>
+      <link>http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</link>
       <pubDate>Thu, 07 Apr 2016 11:44:37 +0800</pubDate>
       <author>msly.2008@gmail.com (msly)</author>
-      <guid>http://msly.github.io/2016/04/07/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</guid>
-      <description>&lt;p&gt;原文:&lt;a href=&#34;https://ruslanspivak.com/lsbasi-part7/&#34;&gt;Let’s Build A Simple Interpreter. Part 7.&lt;/a&gt;&lt;/p&gt;
+      <guid>http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</guid>
+      <description>&lt;p&gt;原文：&lt;a href=&#34;https://ruslanspivak.com/lsbasi-part7/&#34;&gt;Let’s Build A Simple Interpreter. Part 7.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;C++代码:&lt;a href=&#34;https://github.com/msly/compiler/tree/master/second&#34;&gt;https://github.com/msly/compiler/tree/master/second&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;C++代码：&lt;a href=&#34;https://github.com/msly/compiler/tree/master/second&#34;&gt;https://github.com/msly/compiler/tree/master/second&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;应上次之约，今天我将讲一个在以后的章节会经常使用的，重要的数据结构。所以大家系好安全带（做好准备），让我们开始吧。&lt;/p&gt;
 
@@ -53,6 +53,238 @@
 &lt;p&gt;事实证明，树是一个非常合适的数据结构用来表示IR。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;让我们来快速了解下树的一些特性：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;树是由一个或多个节点组成的层次关系的集合。&lt;/li&gt;
+&lt;li&gt;树有一个根节点，就是最顶层的那个。&lt;/li&gt;
+&lt;li&gt;每一个非根节点有且只有一个父节点。&lt;/li&gt;
+&lt;li&gt;下图中标记 * 的节点是父节点，标记2和7的是他的子节点，按左到右的顺序排列。&lt;/li&gt;
+&lt;li&gt;没有子节点的节点被称为叶节点。&lt;/li&gt;
+&lt;li&gt;除了根节点和叶节点，其他节点被称为内部节点。&lt;/li&gt;
+&lt;li&gt;子节点也是一颗完整的子树，在下图中左节点（标记 * 的节点）相对 + 节点就是一颗完整的子树。&lt;/li&gt;
+&lt;li&gt;在计算机科学中，树结构像一颗倒挂着的树，根朝上，树枝是往下生长的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;下面是表达式2 * 7 + 3用树的表示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_tree_terminology.png&#34; alt=&#34;lsbasi_part7_tree_terminology.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们把这个系列文章中使用的IR（中间表示）叫做抽象语法树（AST）。在我们深入研究AST之前，先简单的谈谈解析树（parse trees）。虽然我们不在解释器和编译器中使用解析树，他可以帮助你了解你的解析器通过可视化的执行轨迹来解析输入。我们也将与AST进行比较，从而明白为什么AST比解析树更适合中间表示。&lt;/p&gt;
+
+&lt;p&gt;那么，什么是解析树？解析树（有时也称具体语法书）根据我们的语法定义来构建语言的语法结构。他基本说明了解析器是如何识别语言的，换句话说，他表示了你的语法起始符怎样从编程语言中提取一个特定的字符串。&lt;/p&gt;
+
+&lt;p&gt;解析器的调用堆栈隐式的表示了一颗解析树，他在当你的解析器试图去识别一个特定的语言结构时，自动的构建在内存中。&lt;/p&gt;
+
+&lt;p&gt;让我们看一下表达式 2 * 7 + 3 的解析树。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_parsetree_01.png&#34; alt=&#34;lsbasi_part7_parsetree_01.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在上图中能看到:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;解析树记录了一系列解析器用于识别输入的规则。&lt;/li&gt;
+&lt;li&gt;解析树的根标记为语法起始符。&lt;/li&gt;
+&lt;li&gt;每个内部节点代表一个非终结符，他在这个例子中，代表了类似exp、term或factor等语法规则应用。&lt;/li&gt;
+&lt;li&gt;每个叶节点代表一个token。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我已经提过，我们不打算手动构建解析树，并用于我们的解释器，但是解析树可以帮助你理解解析器是如何通过可视化解析调用序列来解释输入的。&lt;/p&gt;
+
+&lt;p&gt;我很快写了一个小工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genptdot.py&#34;&gt;genptdot.py&lt;/a&gt;，你可以用它来看各种不同的数学表达式的解析树。使用这个工具前，需要安装&lt;a href=&#34;http://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt;，然后运行下面的命令，打开生成的图片文件parsetree.png，你就能看到你在命令行输入的表达式的解析树。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;$ python genptdot.py &amp;quot;14 + 2 * 3 - 6 / 2&amp;quot; &amp;gt; \
+  parsetree.dot &amp;amp;&amp;amp; dot -Tpng -o parsetree.png parsetree.dot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是工具生成的表达式 14 + 2 * 3 -6 / 2 的解析树图片。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_genptdot_01.png&#34; alt=&#34;lsbasi_part7_genptdot_01.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;你可以试试不同的表达式，看看表达式对应的解析树是什么样子的。&lt;/p&gt;
+
+&lt;p&gt;现在，我们来谈谈抽象语法树（AST）。他就是我们接下来的系列都使用的中间表示（IR）。他是我们的解释器和将来的编译器的重要数据结构之一。&lt;/p&gt;
+
+&lt;p&gt;通过观察表达式 2 * 7 + 3 的AST和解析树，开始我们的讨论吧：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_ast_01.png&#34; alt=&#34;lsbasi_part7_ast_01.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;你能从上面的图片看到，AST抓住了表达式的本质却更精简。&lt;/p&gt;
+
+&lt;p&gt;下面是AST和解析树的主要不同点：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;AST使用操作符作为根节点和内部节点，操作数作为他们的子节点。&lt;/li&gt;
+&lt;li&gt;AST不像解析树那样使用内部节点来表示语法规则。&lt;/li&gt;
+&lt;li&gt;AST的并不表示实际语法的每一个细节（这就是为什么把他叫抽象树），例如：没有规则节点和没有括号。&lt;/li&gt;
+&lt;li&gt;相比同样的语言结构AST比解析树更紧凑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;那么，什么是抽象语法树？抽象语法树（AST）是表示语言结构的抽象语法结构的树，他的每个内部节点和根节点表示操作符，子节点表示那些操作符的操作数。&lt;/p&gt;
+
+&lt;p&gt;我已经提过，AST比解析树更紧凑。我们来看一下表达式 7 + ((2 + 3))的AST和解析树。你可以看到AST比解析树小很多，但始终抓到了输入的本质。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_ast_02.png&#34; alt=&#34;lsbasi_part7_ast_02.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到目前为止，一切看似都很好，但怎么在AST中编码操作符的优先级？为了在AST中编码操作符优先级，换句话说，就是表示“X 发生在 Y 前面”，你只需要在树中把 X 放在 Y 下面的层级。在前面的图片中，你已经看到了吧。&lt;/p&gt;
+
+&lt;p&gt;我们来看看更多的一些例子。&lt;/p&gt;
+
+&lt;p&gt;在下面的图片中，左边那个表示 2 * 7 + 3，右边修改了优先级，把 7 + 3 放到括号里，表示 2 * (7 + 3)：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_astprecedence_01.png&#34; alt=&#34;lsbasi_part7_astprecedence_01.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面是表达式 1 + 2 + 3 + 4 + 5 的AST：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_astprecedence_02.png&#34; alt=&#34;lsbasi_part7_astprecedence_02.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从上面的图片可以看到，优先级越高的操作符最终在树中的位置更低。&lt;/p&gt;
+
+&lt;p&gt;好吧，让我们写一些代码来实现不同的AST节点类型，并修改我们的解析器来生成这些节点组成的AST树。&lt;/p&gt;
+
+&lt;p&gt;首先，我们将创建一个名为AST的基类，其他类将继承他：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class AST(object):
+    pass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;实际上没有太多代码。回想一下，AST表示的是操作符-操作数模式。目前我们有4个操作符和整数型操作数。操作符包括加、减、乘和除。我们可以创建单独的类来分别表示每个操作符，例如AddNode、SubNode、MulNode和DivNode，但是我们这里只使用一个BinOp类来表示所有的4个二元操作符（二元操作符就是一个操作符有两个操作数）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class BinOp(AST):
+    def __init__(self, left, op, right):
+        self.left = left
+        self.token = self.op = op
+        self.right = right
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;构造函数的参数有left，op，right，left和right对应于左操作数节点和右操作数节点。op是表示操作符自己的token，例如：Token(PLUS，&amp;rsquo;+&amp;lsquo;)表示加法操作符，Token(MINUS，&amp;rsquo;-&amp;lsquo;)表示减法操作符，以此类推。&lt;/p&gt;
+
+&lt;p&gt;为了在AST中表示整数，我们将定义一个Num类，他有一个INTEGER token以及token的值。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Num(AST):
+    def __init__(self, token):
+        self.token = token
+        self.value = token.value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你注意到了没有，所有的节点存储了token用来创建节点。这主要是为了方便，他在将来会派上用场。&lt;/p&gt;
+
+&lt;p&gt;回想下表达式 2 * 7 + 3 的AST。我们将要手动用代码来表示他：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; from spi import Token, MUL, PLUS, INTEGER, Num, BinOp
+&amp;gt;&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; mul_token = Token(MUL, &#39;*&#39;)
+&amp;gt;&amp;gt;&amp;gt; plus_token = Token(PLUS, &#39;+&#39;)
+&amp;gt;&amp;gt;&amp;gt; mul_node = BinOp(
+...     left=Num(Token(INTEGER, 2)),
+...     op=mul_token,
+...     right=Num(Token(INTEGER, 7))
+... )
+&amp;gt;&amp;gt;&amp;gt; add_node = BinOp(
+...     left=mul_node,
+...     op=plus_token,
+...     right=Num(Token(INTEGER, 3))
+... )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是我们修改的解析器代码，识别输入（算术表达式）并返回一个AST作为结果。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class AST(object):
+    pass
+
+
+class BinOp(AST):
+    def __init__(self, left, op, right):
+        self.left = left
+        self.token = self.op = op
+        self.right = right
+
+
+class Num(AST):
+    def __init__(self, token):
+        self.token = token
+        self.value = token.value
+
+
+class Parser(object):
+    def __init__(self, lexer):
+        self.lexer = lexer
+        # set current token to the first token taken from the input
+        self.current_token = self.lexer.get_next_token()
+
+    def error(self):
+        raise Exception(&#39;Invalid syntax&#39;)
+
+    def eat(self, token_type):
+        # compare the current token type with the passed token
+        # type and if they match then &amp;quot;eat&amp;quot; the current token
+        # and assign the next token to the self.current_token,
+        # otherwise raise an exception.
+        if self.current_token.type == token_type:
+            self.current_token = self.lexer.get_next_token()
+        else:
+            self.error()
+
+    def factor(self):
+        &amp;quot;&amp;quot;&amp;quot;factor : INTEGER | LPAREN expr RPAREN&amp;quot;&amp;quot;&amp;quot;
+        token = self.current_token
+        if token.type == INTEGER:
+            self.eat(INTEGER)
+            return Num(token)
+        elif token.type == LPAREN:
+            self.eat(LPAREN)
+            node = self.expr()
+            self.eat(RPAREN)
+            return node
+
+    def term(self):
+        &amp;quot;&amp;quot;&amp;quot;term : factor ((MUL | DIV) factor)*&amp;quot;&amp;quot;&amp;quot;
+        node = self.factor()
+
+        while self.current_token.type in (MUL, DIV):
+            token = self.current_token
+            if token.type == MUL:
+                self.eat(MUL)
+            elif token.type == DIV:
+                self.eat(DIV)
+
+            node = BinOp(left=node, op=token, right=self.factor())
+
+        return node
+
+    def expr(self):
+        &amp;quot;&amp;quot;&amp;quot;
+        expr   : term ((PLUS | MINUS) term)*
+        term   : factor ((MUL | DIV) factor)*
+        factor : INTEGER | LPAREN expr RPAREN
+        &amp;quot;&amp;quot;&amp;quot;
+        node = self.term()
+
+        while self.current_token.type in (PLUS, MINUS):
+            token = self.current_token
+            if token.type == PLUS:
+                self.eat(PLUS)
+            elif token.type == MINUS:
+                self.eat(MINUS)
+
+            node = BinOp(left=node, op=token, right=self.term())
+
+        return node
+
+    def parse(self):
+        return self.expr()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们通过一些算术表达式来复习下AST的构建过程。&lt;/p&gt;
+
+&lt;p&gt;未完待续&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
@@ -64,7 +296,7 @@
       <guid>http://msly.github.io/about/</guid>
       <description>
 
-&lt;h1 id=&#34;关于&#34;&gt;关于&lt;/h1&gt;
+&lt;h1 id=&#34;关于:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;关于&lt;/h1&gt;
 
 &lt;hr /&gt;
 

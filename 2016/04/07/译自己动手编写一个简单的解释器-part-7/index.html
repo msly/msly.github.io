@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>[译]自己动手编写一个简单的解释器 Part 7  &middot; Home</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="interpreter, parser, IR, ">
+
+
+<meta property="og:title" content="[译]自己动手编写一个简单的解释器 Part 7  &middot; Home ">
+<meta property="og:site_name" content="Home"/>
+<meta property="og:url" content="http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/" />
+<meta property="og:locale" content="en-us">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2016-04-07T11:44:37&#43;08:00" />
+<meta property="og:article:modified_time" content="2016-04-07T11:44:37&#43;08:00" />
+
+  
+    
+<meta property="og:article:tag" content="interpreter">
+    
+<meta property="og:article:tag" content="parser">
+    
+<meta property="og:article:tag" content="IR">
+    
+  
+
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "[译]自己动手编写一个简单的解释器 Part 7",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2016-04-07",
+    "description": "",
+    "wordCount":  466 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://msly.github.io/touch-icon-144-precomposed.png">
+<link href="http://msly.github.io/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://msly.github.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://msly.github.io/css/style.css">
+<link rel="stylesheet" href="http://msly.github.io/css/highlight/default.css">
+
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://msly.github.io/">
+  msly
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  长风破浪会有时</br>直挂云帆济沧海
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://msly.github.io/">Home</a>
+
+
+  
+<a href="http://msly.github.io/tools">Tools</a>
+
+<a href="http://msly.github.io/post" title="Show list of posts">Posts</a>
+
+<a href="http://msly.github.io/topics" title="Show list of topics">Topics</a>
+
+<a href="http://msly.github.io/tags" title="Show list of tags">Tags</a>
+
+<a href="http://msly.github.io/about">About</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:msly.2008@gmail.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/msly">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>[译]自己动手编写一个简单的解释器 Part 7
+</h1>
+
+  <div class="metas">
+<time datetime="2016-04-07">7 Apr, 2016</time>
+
+
+  
+  &middot; Read in about 3 min
+  &middot; (466 Words)
+  <br>
+  
+<a class="label" href="http://msly.github.io/tags/interpreter">interpreter</a>
+
+<a class="label" href="http://msly.github.io/tags/python">python</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  <p>原文：<a href="https://ruslanspivak.com/lsbasi-part7/">Let’s Build A Simple Interpreter. Part 7.</a></p>
+
+<p>C++代码：<a href="https://github.com/msly/compiler/tree/master/second">https://github.com/msly/compiler/tree/master/second</a></p>
+
+<p>应上次之约，今天我将讲一个在以后的章节会经常使用的，重要的数据结构。所以大家系好安全带（做好准备），让我们开始吧。</p>
+
+<p>到目前为止，我们把解释器和解析器的代码混在一起，一旦解析器构建好某种语法结构，比如加法、减法、乘法或除法,解释器就计算该表达式的结果(译者:通过parser来触发interpreter执行).这种解释器被称为语法导向的解释器.他们通常是单一的输入，适用于基本的语言的应用程序。为了分析更复杂的Pascal程序语言结构，我们需要建立一个中间表示(IR)。我们的解析器负责构建IR，解释器将用来解释这个IR输入。</p>
+
+<p>事实证明，树是一个非常合适的数据结构用来表示IR。</p>
+
+<p><img src="/images/lsbasi_part7_realtree.png" alt="lsbasi_part7_realtree.png" /></p>
+
+<p>让我们来快速了解下树的一些特性：</p>
+
+<blockquote>
+<ul>
+<li>树是由一个或多个节点组成的层次关系的集合。</li>
+<li>树有一个根节点，就是最顶层的那个。</li>
+<li>每一个非根节点有且只有一个父节点。</li>
+<li>下图中标记 * 的节点是父节点，标记2和7的是他的子节点，按左到右的顺序排列。</li>
+<li>没有子节点的节点被称为叶节点。</li>
+<li>除了根节点和叶节点，其他节点被称为内部节点。</li>
+<li>子节点也是一颗完整的子树，在下图中左节点（标记 * 的节点）相对 + 节点就是一颗完整的子树。</li>
+<li>在计算机科学中，树结构像一颗倒挂着的树，根朝上，树枝是往下生长的。</li>
+</ul>
+</blockquote>
+
+<p>下面是表达式2 * 7 + 3用树的表示：</p>
+
+<p><img src="/images/lsbasi_part7_tree_terminology.png" alt="lsbasi_part7_tree_terminology.png" /></p>
+
+<p>我们把这个系列文章中使用的IR（中间表示）叫做抽象语法树（AST）。在我们深入研究AST之前，先简单的谈谈解析树（parse trees）。虽然我们不在解释器和编译器中使用解析树，他可以帮助你了解你的解析器通过可视化的执行轨迹来解析输入。我们也将与AST进行比较，从而明白为什么AST比解析树更适合中间表示。</p>
+
+<p>那么，什么是解析树？解析树（有时也称具体语法书）根据我们的语法定义来构建语言的语法结构。他基本说明了解析器是如何识别语言的，换句话说，他表示了你的语法起始符怎样从编程语言中提取一个特定的字符串。</p>
+
+<p>解析器的调用堆栈隐式的表示了一颗解析树，他在当你的解析器试图去识别一个特定的语言结构时，自动的构建在内存中。</p>
+
+<p>让我们看一下表达式 2 * 7 + 3 的解析树。</p>
+
+<p><img src="/images/lsbasi_part7_parsetree_01.png" alt="lsbasi_part7_parsetree_01.png" /></p>
+
+<p>在上图中能看到:</p>
+
+<blockquote>
+<ul>
+<li>解析树记录了一系列解析器用于识别输入的规则。</li>
+<li>解析树的根标记为语法起始符。</li>
+<li>每个内部节点代表一个非终结符，他在这个例子中，代表了类似exp、term或factor等语法规则应用。</li>
+<li>每个叶节点代表一个token。</li>
+</ul>
+</blockquote>
+
+<p>我已经提过，我们不打算手动构建解析树，并用于我们的解释器，但是解析树可以帮助你理解解析器是如何通过可视化解析调用序列来解释输入的。</p>
+
+<p>我很快写了一个小工具<a href="https://github.com/rspivak/lsbasi/blob/master/part7/python/genptdot.py">genptdot.py</a>，你可以用它来看各种不同的数学表达式的解析树。使用这个工具前，需要安装<a href="http://graphviz.org/">Graphviz</a>，然后运行下面的命令，打开生成的图片文件parsetree.png，你就能看到你在命令行输入的表达式的解析树。</p>
+
+<pre><code class="language-python">$ python genptdot.py &quot;14 + 2 * 3 - 6 / 2&quot; &gt; \
+  parsetree.dot &amp;&amp; dot -Tpng -o parsetree.png parsetree.dot
+</code></pre>
+
+<p>下面是工具生成的表达式 14 + 2 * 3 -6 / 2 的解析树图片。</p>
+
+<p><img src="/images/lsbasi_part7_genptdot_01.png" alt="lsbasi_part7_genptdot_01.png" /></p>
+
+<p>你可以试试不同的表达式，看看表达式对应的解析树是什么样子的。</p>
+
+<p>现在，我们来谈谈抽象语法树（AST）。他就是我们接下来的系列都使用的中间表示（IR）。他是我们的解释器和将来的编译器的重要数据结构之一。</p>
+
+<p>通过观察表达式 2 * 7 + 3 的AST和解析树，开始我们的讨论吧：</p>
+
+<p><img src="/images/lsbasi_part7_ast_01.png" alt="lsbasi_part7_ast_01.png" /></p>
+
+<p>你能从上面的图片看到，AST抓住了表达式的本质却更精简。</p>
+
+<p>下面是AST和解析树的主要不同点：</p>
+
+<blockquote>
+<ul>
+<li>AST使用操作符作为根节点和内部节点，操作数作为他们的子节点。</li>
+<li>AST不像解析树那样使用内部节点来表示语法规则。</li>
+<li>AST的并不表示实际语法的每一个细节（这就是为什么把他叫抽象树），例如：没有规则节点和没有括号。</li>
+<li>相比同样的语言结构AST比解析树更紧凑。</li>
+</ul>
+</blockquote>
+
+<p>那么，什么是抽象语法树？抽象语法树（AST）是表示语言结构的抽象语法结构的树，他的每个内部节点和根节点表示操作符，子节点表示那些操作符的操作数。</p>
+
+<p>我已经提过，AST比解析树更紧凑。我们来看一下表达式 7 + ((2 + 3))的AST和解析树。你可以看到AST比解析树小很多，但始终抓到了输入的本质。</p>
+
+<p><img src="/images/lsbasi_part7_ast_02.png" alt="lsbasi_part7_ast_02.png" /></p>
+
+<p>到目前为止，一切看似都很好，但怎么在AST中编码操作符的优先级？为了在AST中编码操作符优先级，换句话说，就是表示“X 发生在 Y 前面”，你只需要在树中把 X 放在 Y 下面的层级。在前面的图片中，你已经看到了吧。</p>
+
+<p>我们来看看更多的一些例子。</p>
+
+<p>在下面的图片中，左边那个表示 2 * 7 + 3，右边修改了优先级，把 7 + 3 放到括号里，表示 2 * (7 + 3)：</p>
+
+<p><img src="/images/lsbasi_part7_astprecedence_01.png" alt="lsbasi_part7_astprecedence_01.png" /></p>
+
+<p>下面是表达式 1 + 2 + 3 + 4 + 5 的AST：</p>
+
+<p><img src="/images/lsbasi_part7_astprecedence_02.png" alt="lsbasi_part7_astprecedence_02.png" /></p>
+
+<p>从上面的图片可以看到，优先级越高的操作符最终在树中的位置更低。</p>
+
+<p>好吧，让我们写一些代码来实现不同的AST节点类型，并修改我们的解析器来生成这些节点组成的AST树。</p>
+
+<p>首先，我们将创建一个名为AST的基类，其他类将继承他：</p>
+
+<pre><code class="language-python">class AST(object):
+    pass
+</code></pre>
+
+<p>实际上没有太多代码。回想一下，AST表示的是操作符-操作数模式。目前我们有4个操作符和整数型操作数。操作符包括加、减、乘和除。我们可以创建单独的类来分别表示每个操作符，例如AddNode、SubNode、MulNode和DivNode，但是我们这里只使用一个BinOp类来表示所有的4个二元操作符（二元操作符就是一个操作符有两个操作数）。</p>
+
+<pre><code class="language-python">class BinOp(AST):
+    def __init__(self, left, op, right):
+        self.left = left
+        self.token = self.op = op
+        self.right = right
+</code></pre>
+
+<p>构造函数的参数有left，op，right，left和right对应于左操作数节点和右操作数节点。op是表示操作符自己的token，例如：Token(PLUS，&rsquo;+&lsquo;)表示加法操作符，Token(MINUS，&rsquo;-&lsquo;)表示减法操作符，以此类推。</p>
+
+<p>为了在AST中表示整数，我们将定义一个Num类，他有一个INTEGER token以及token的值。</p>
+
+<pre><code class="language-python">class Num(AST):
+    def __init__(self, token):
+        self.token = token
+        self.value = token.value
+</code></pre>
+
+<p>你注意到了没有，所有的节点存储了token用来创建节点。这主要是为了方便，他在将来会派上用场。</p>
+
+<p>回想下表达式 2 * 7 + 3 的AST。我们将要手动用代码来表示他：</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; from spi import Token, MUL, PLUS, INTEGER, Num, BinOp
+&gt;&gt;&gt;
+&gt;&gt;&gt; mul_token = Token(MUL, '*')
+&gt;&gt;&gt; plus_token = Token(PLUS, '+')
+&gt;&gt;&gt; mul_node = BinOp(
+...     left=Num(Token(INTEGER, 2)),
+...     op=mul_token,
+...     right=Num(Token(INTEGER, 7))
+... )
+&gt;&gt;&gt; add_node = BinOp(
+...     left=mul_node,
+...     op=plus_token,
+...     right=Num(Token(INTEGER, 3))
+... )
+</code></pre>
+
+<p>下面是我们修改的解析器代码，识别输入（算术表达式）并返回一个AST作为结果。</p>
+
+<pre><code class="language-python">class AST(object):
+    pass
+
+
+class BinOp(AST):
+    def __init__(self, left, op, right):
+        self.left = left
+        self.token = self.op = op
+        self.right = right
+
+
+class Num(AST):
+    def __init__(self, token):
+        self.token = token
+        self.value = token.value
+
+
+class Parser(object):
+    def __init__(self, lexer):
+        self.lexer = lexer
+        # set current token to the first token taken from the input
+        self.current_token = self.lexer.get_next_token()
+
+    def error(self):
+        raise Exception('Invalid syntax')
+
+    def eat(self, token_type):
+        # compare the current token type with the passed token
+        # type and if they match then &quot;eat&quot; the current token
+        # and assign the next token to the self.current_token,
+        # otherwise raise an exception.
+        if self.current_token.type == token_type:
+            self.current_token = self.lexer.get_next_token()
+        else:
+            self.error()
+
+    def factor(self):
+        &quot;&quot;&quot;factor : INTEGER | LPAREN expr RPAREN&quot;&quot;&quot;
+        token = self.current_token
+        if token.type == INTEGER:
+            self.eat(INTEGER)
+            return Num(token)
+        elif token.type == LPAREN:
+            self.eat(LPAREN)
+            node = self.expr()
+            self.eat(RPAREN)
+            return node
+
+    def term(self):
+        &quot;&quot;&quot;term : factor ((MUL | DIV) factor)*&quot;&quot;&quot;
+        node = self.factor()
+
+        while self.current_token.type in (MUL, DIV):
+            token = self.current_token
+            if token.type == MUL:
+                self.eat(MUL)
+            elif token.type == DIV:
+                self.eat(DIV)
+
+            node = BinOp(left=node, op=token, right=self.factor())
+
+        return node
+
+    def expr(self):
+        &quot;&quot;&quot;
+        expr   : term ((PLUS | MINUS) term)*
+        term   : factor ((MUL | DIV) factor)*
+        factor : INTEGER | LPAREN expr RPAREN
+        &quot;&quot;&quot;
+        node = self.term()
+
+        while self.current_token.type in (PLUS, MINUS):
+            token = self.current_token
+            if token.type == PLUS:
+                self.eat(PLUS)
+            elif token.type == MINUS:
+                self.eat(MINUS)
+
+            node = BinOp(left=node, op=token, right=self.term())
+
+        return node
+
+    def parse(self):
+        return self.expr()
+</code></pre>
+
+<p>我们通过一些算术表达式来复习下AST的构建过程。</p>
+
+<p>未完待续&hellip;</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+
+<div class="ds-thread" data-thread-key="" data-title="[译]自己动手编写一个简单的解释器 Part 7" data-url="http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/"></div>
+
+
+
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"msly"};
+
+    (function() {
+     var ds = document.createElement('script');
+     ds.type = 'text/javascript';ds.async = true;
+     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+     ds.charset = 'UTF-8';
+     (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+     })();
+    </script>
+
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://msly.github.io/"></a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2016 copyright. Hugo [hyde-y]　code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"msly"};
+
+    (function() {
+     var ds = document.createElement('script');
+     ds.type = 'text/javascript';ds.async = true;
+     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+     ds.charset = 'UTF-8';
+     (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+     })();
+    </script>
+
+
+
+
+<script src="http://msly.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+    
+  </body>
+</html>
+

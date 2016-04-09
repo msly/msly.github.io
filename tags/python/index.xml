@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Interpreter on Home</title>
-    <link>http://msly.github.io/tags/interpreter/</link>
-    <description>Recent content in Interpreter on Home</description>
+    <title>Python on Home</title>
+    <link>http://msly.github.io/tags/python/</link>
+    <description>Recent content in Python on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>msly.2008@gmail.com (msly)</managingEditor>
     <webMaster>msly.2008@gmail.com (msly)</webMaster>
     <copyright>(c) 2016 copyright. Hugo [hyde-y]　code with &lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt;</copyright>
     <lastBuildDate>Thu, 07 Apr 2016 11:44:37 +0800</lastBuildDate>
-    <atom:link href="http://msly.github.io/tags/interpreter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://msly.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>[译]自己动手编写一个简单的解释器 Part 7</title>
