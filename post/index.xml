@@ -28,7 +28,7 @@
 
 &lt;p&gt;事实证明，树是一个非常合适的数据结构用来表示IR。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;让我们来快速了解下树的一些特性：&lt;/p&gt;
 
@@ -47,67 +47,67 @@
 
 &lt;p&gt;下面是表达式2 * 7 + 3用树的表示：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_tree_terminology.png&#34; alt=&#34;lsbasi_part7_tree_terminology.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_tree_terminology.png&#34; alt=&#34;lsbasi_part7_tree_terminology.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;我们把这个系列文章中使用的IR（中间表示）叫做抽象语法树（AST）。在我们深入研究AST之前，先简单的谈谈解析树（parse trees）。虽然我们不在解释器和编译器中使用解析树，他可以帮助你了解你的解析器通过可视化的执行轨迹来解析输入。我们也将与AST进行比较，从而明白为什么AST比解析树更适合中间表示。&lt;/p&gt;
+&lt;p&gt;我们把这个系列文章中使用的IR（中间表示）叫做抽象语法树（AST）。在我们深入研究AST之前，先简单的谈谈分析树（parse trees）。虽然我们不在解释器和编译器中使用分析树，他可以帮助你了解你的解析器通过可视化的执行轨迹来解析输入。我们也将与AST进行比较，从而明白为什么AST比分析树更适合中间表示。&lt;/p&gt;
 
-&lt;p&gt;那么，什么是解析树？解析树（有时也称具体语法书）根据我们的语法定义来构建语言的语法结构。他基本说明了解析器是如何识别语言的，换句话说，他表示了你的语法起始符怎样从编程语言中提取一个特定的字符串。&lt;/p&gt;
+&lt;p&gt;那么，什么是分析树？分析树（有时也称具体语法树）根据我们的语法定义来构建语言的语法结构。他基本说明了解析器是如何识别语言的，换句话说，他表示了你的语法起始符怎样从编程语言中提取一个特定的字符串。&lt;/p&gt;
 
-&lt;p&gt;解析器的调用堆栈隐式的表示了一颗解析树，他在当你的解析器试图去识别一个特定的语言结构时，自动的构建在内存中。&lt;/p&gt;
+&lt;p&gt;解析器的调用堆栈隐式的表示了一颗分析树，他在当你的解析器试图去识别一个特定的语言结构时，自动的构建在内存中。&lt;/p&gt;
 
-&lt;p&gt;让我们看一下表达式 2 * 7 + 3 的解析树。&lt;/p&gt;
+&lt;p&gt;让我们看一下表达式 2 * 7 + 3 的分析树。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_parsetree_01.png&#34; alt=&#34;lsbasi_part7_parsetree_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_parsetree_01.png&#34; alt=&#34;lsbasi_part7_parsetree_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;在上图中能看到:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;解析树记录了一系列解析器用于识别输入的规则。&lt;/li&gt;
-&lt;li&gt;解析树的根标记为语法起始符。&lt;/li&gt;
+&lt;li&gt;分析树记录了一系列解析器用于识别输入的规则。&lt;/li&gt;
+&lt;li&gt;分析树的根标记为语法起始符。&lt;/li&gt;
 &lt;li&gt;每个内部节点代表一个非终结符，他在这个例子中，代表了类似exp、term或factor等语法规则应用。&lt;/li&gt;
 &lt;li&gt;每个叶节点代表一个token。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;我已经提过，我们不打算手动构建解析树，并用于我们的解释器，但是解析树可以帮助你理解解析器是如何通过可视化解析调用序列来解释输入的。&lt;/p&gt;
+&lt;p&gt;我已经提过，我们不打算手动构建分析树，并用于我们的解释器，但是分析树可以帮助你理解解析器是如何通过可视化解析调用序列来解释输入的。&lt;/p&gt;
 
-&lt;p&gt;我很快写了一个小工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genptdot.py&#34;&gt;genptdot.py&lt;/a&gt;，你可以用它来看各种不同的数学表达式的解析树。使用这个工具前，需要安装&lt;a href=&#34;http://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt;，然后运行下面的命令，打开生成的图片文件parsetree.png，你就能看到你在命令行输入的表达式的解析树。&lt;/p&gt;
+&lt;p&gt;我很快写了一个小工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genptdot.py&#34;&gt;genptdot.py&lt;/a&gt;，你可以用它来看各种不同的数学表达式的分析树。使用这个工具前，需要安装&lt;a href=&#34;http://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt;，然后运行下面的命令，打开生成的图片文件parsetree.png，你就能看到你在命令行输入的表达式的分析树。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;$ python genptdot.py &amp;quot;14 + 2 * 3 - 6 / 2&amp;quot; &amp;gt; \
   parsetree.dot &amp;amp;&amp;amp; dot -Tpng -o parsetree.png parsetree.dot
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;下面是工具生成的表达式 14 + 2 * 3 -6 / 2 的解析树图片。&lt;/p&gt;
+&lt;p&gt;下面是工具生成的表达式 14 + 2 * 3 -6 / 2 的分析树图片。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_genptdot_01.png&#34; alt=&#34;lsbasi_part7_genptdot_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_genptdot_01.png&#34; alt=&#34;lsbasi_part7_genptdot_01.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;你可以试试不同的表达式，看看表达式对应的解析树是什么样子的。&lt;/p&gt;
+&lt;p&gt;你可以试试不同的表达式，看看表达式对应的分析树是什么样子的。&lt;/p&gt;
 
 &lt;p&gt;现在，我们来谈谈抽象语法树（AST）。他就是我们接下来的系列都使用的中间表示（IR）。他是我们的解释器和将来的编译器的重要数据结构之一。&lt;/p&gt;
 
-&lt;p&gt;通过观察表达式 2 * 7 + 3 的AST和解析树，开始我们的讨论吧：&lt;/p&gt;
+&lt;p&gt;通过观察表达式 2 * 7 + 3 的AST和分析树，开始我们的讨论吧：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_ast_01.png&#34; alt=&#34;lsbasi_part7_ast_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_01.png&#34; alt=&#34;lsbasi_part7_ast_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;你能从上面的图片看到，AST抓住了表达式的本质却更精简。&lt;/p&gt;
 
-&lt;p&gt;下面是AST和解析树的主要不同点：&lt;/p&gt;
+&lt;p&gt;下面是AST和分析树的主要不同点：&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;AST使用操作符作为根节点和内部节点，操作数作为他们的子节点。&lt;/li&gt;
-&lt;li&gt;AST不像解析树那样使用内部节点来表示语法规则。&lt;/li&gt;
+&lt;li&gt;AST不像分析树那样使用内部节点来表示语法规则。&lt;/li&gt;
 &lt;li&gt;AST的并不表示实际语法的每一个细节（这就是为什么把他叫抽象树），例如：没有规则节点和没有括号。&lt;/li&gt;
-&lt;li&gt;相比同样的语言结构AST比解析树更紧凑。&lt;/li&gt;
+&lt;li&gt;相比同样的语言结构AST比分析树更紧凑。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;那么，什么是抽象语法树？抽象语法树（AST）是表示语言结构的抽象语法结构的树，他的每个内部节点和根节点表示操作符，子节点表示那些操作符的操作数。&lt;/p&gt;
 
-&lt;p&gt;我已经提过，AST比解析树更紧凑。我们来看一下表达式 7 + ((2 + 3))的AST和解析树。你可以看到AST比解析树小很多，但始终抓到了输入的本质。&lt;/p&gt;
+&lt;p&gt;我已经提过，AST比分析树更紧凑。我们来看一下表达式 7 + ((2 + 3))的AST和分析树。你可以看到AST比分析树小很多，但始终抓到了输入的本质。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_ast_02.png&#34; alt=&#34;lsbasi_part7_ast_02.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_02.png&#34; alt=&#34;lsbasi_part7_ast_02.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;到目前为止，一切看似都很好，但怎么在AST中编码操作符的优先级？为了在AST中编码操作符优先级，换句话说，就是表示“X 发生在 Y 前面”，你只需要在树中把 X 放在 Y 下面的层级。在前面的图片中，你已经看到了吧。&lt;/p&gt;
 
@@ -115,11 +115,11 @@
 
 &lt;p&gt;在下面的图片中，左边那个表示 2 * 7 + 3，右边修改了优先级，把 7 + 3 放到括号里，表示 2 * (7 + 3)：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_astprecedence_01.png&#34; alt=&#34;lsbasi_part7_astprecedence_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astprecedence_01.png&#34; alt=&#34;lsbasi_part7_astprecedence_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;下面是表达式 1 + 2 + 3 + 4 + 5 的AST：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi_part7_astprecedence_02.png&#34; alt=&#34;lsbasi_part7_astprecedence_02.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astprecedence_02.png&#34; alt=&#34;lsbasi_part7_astprecedence_02.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;从上面的图片可以看到，优先级越高的操作符最终在树中的位置更低。&lt;/p&gt;
 
@@ -169,6 +169,10 @@
 ...     right=Num(Token(INTEGER, 3))
 ... )
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是我们的新节点类定义的AST，图片遵循上面的手动创建过程：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astimpl_01.png&#34; alt=&#34;lsbasi_part7_astimpl_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;下面是我们修改的解析器代码，识别输入（算术表达式）并返回一个AST作为结果。&lt;/p&gt;
 
@@ -260,7 +264,432 @@ class Parser(object):
 
 &lt;p&gt;我们通过一些算术表达式来复习下AST的构建过程。&lt;/p&gt;
 
-&lt;p&gt;未完待续&amp;hellip;&lt;/p&gt;
+&lt;p&gt;从上面的代码你可以看到，AST构建节点的方式，每个BinOp节点采用节点变量的当前值作为他的左节点，调用term或factor的结果作为右节点。所以他有效的把节点下推到左边，下面的表达式1 + 2 + 3 + 4 + 5就是一个很好的例子。这里是一个可视化表示解析器如何逐步建立了表达式1 + 2 + 3 + 4 + 5的AST：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astimpl_02.png&#34; alt=&#34;lsbasi_part7_astimpl_02.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;为了帮助你看到各种的算术表达式的AST，我写了一个小工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genastdot.py&#34;&gt;genastdot.py&lt;/a&gt;，把算数表达式作为第一个参数，最后会通过dot工具生成一个画着AST的dot文件（dot是&lt;a href=&#34;http://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt;的一部分，需要安装Graphviz才能运行）。下面是生成AST的一个命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;$ python genastdot.py &amp;quot;7 + 3 * (10 / (12 / (3 + 1) - 1))&amp;quot; &amp;gt; \
+  ast.dot &amp;amp;&amp;amp; dot -Tpng -o ast.png ast.dot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_genastdot_01.png&#34; alt=&#34;lsbasi_part7_genastdot_01.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是值得你花时间来写一些算术表达式，手动画出他们的AST，然后用工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genastdot.py&#34;&gt;genastdot.py&lt;/a&gt;生成的进行验证，这将帮助你更好的理解解析器是如何构建AST的。&lt;/p&gt;
+
+&lt;p&gt;好了，下面是表达式 2 * 7 + 3 的AST:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_walking_01.png&#34; alt=&#34;lsbasi_part7_ast_walking_01.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如何来遍历树从而正确计算树所代表的表达式呢？你可以使用postorder traversal（后序遍历）-深度优先遍历的一个特例，从根节点开始，按从左到右的方式递归的访问子节点。后序遍历访问节点尽可能快的速度远离根节点。&lt;/p&gt;
+
+&lt;p&gt;下面是后序遍历的伪代码，&amp;lt;&amp;lt; postorder actions &amp;gt;&amp;gt;代表一个BinOp节点的运算符操作（进行+-*/运算）或一个Num节点的求值操作(返回Num节点的值)：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_visit_postorder.png&#34; alt=&#34;lsbasi_part7_ast_visit_postorder.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们的解释器使用后序遍历的原因，第一，我们需要先计算更低层的节点，因为他们有更高的优先级；第二，我们需要先计算操作数，才能使用操作符计算结果。在下面的图片，你可以看到，后序遍历我们首先计算表达式 2 * 7，然后才计算 14 + 3，得到正确的结果，17：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_walking_02.png&#34; alt=&#34;lsbasi_part7_ast_walking_02.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;为了完整起见，我提一下树的三种深度优先遍历：preorder traversal（前序遍历）, inorder traversal（中序遍历）, 和 postorder traversal（后序遍历）。名字的来源于你在遍历代码放actions（具体运算）的位置。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_visit_generic.png&#34; alt=&#34;lsbasi_part7_ast_visit_generic.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;有时你可能需要在上图所示的三个位置都需要执行某些操作。你会看到这样的一些例子在本文的&lt;a href=&#34;https://github.com/rspivak/lsbasi/tree/master/part7&#34;&gt;源码库&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;好吧，让我们写一些代码来访问和解释由我们的解析器构建的抽象语法树，我们可以吗？&lt;/p&gt;
+
+&lt;p&gt;下面是源代码，使用了&lt;a href=&#34;https://zh.wikipedia.org/zh/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F&#34;&gt;访问者模式&lt;/a&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class NodeVisitor(object):
+    def visit(self, node):
+        method_name = &#39;visit_&#39; + type(node).__name__
+        visitor = getattr(self, method_name, self.generic_visit)
+        return visitor(node)
+
+    def generic_visit(self, node):
+        raise Exception(&#39;No visit_{} method&#39;.format(type(node).__name__))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是Interpreter类的代码，继承了NodeVisitor类并根据visit_NodeType实现了不同方法，NodeType会被具体的节点类名字代替，如：BinOp，Num等等（见下面的visit_BinOp， visit_Num）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Interpreter(NodeVisitor):
+    def __init__(self, parser):
+        self.parser = parser
+
+    def visit_BinOp(self, node):
+        if node.op.type == PLUS:
+            return self.visit(node.left) + self.visit(node.right)
+        elif node.op.type == MINUS:
+            return self.visit(node.left) - self.visit(node.right)
+        elif node.op.type == MUL:
+            return self.visit(node.left) * self.visit(node.right)
+        elif node.op.type == DIV:
+            return self.visit(node.left) / self.visit(node.right)
+
+    def visit_Num(self, node):
+        return node.value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关于代码有两个有趣的事情值得在这里提一下：首先，操作AST节点的访问者代码从AST节点解耦。你可以看到AST的节点类（BinOp，Num）没有任何操作节点数据的代码。这些逻辑都封装在实现了NodeVisitor类的Interpreter类中。&lt;/p&gt;
+
+&lt;p&gt;其次，在NodeVisitor的visit方法中没有像下面这样使用了大量的if语句：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def visit(node):
+    node_type = type(node).__name__
+    if node_type == &#39;BinOp&#39;:
+        return self.visit_BinOp(node)
+    elif node_type == &#39;Num&#39;:
+        return self.visit_Num(node)
+    elif ...
+    # ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或者像这样:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def visit(node):
+    if isinstance(node, BinOp):
+        return self.visit_BinOp(node)
+    elif isinstance(node, Num):
+        return self.visit_Num(node)
+    elif ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NodeVisitor类的visit方法是非常通用的，他根据节点的类型把调用转发到合适的方法。我们前面提过，为了使用他，我们的解释器继承了NodeVisitor类并实现了必要的方法。如果传递给visit方法的类型是BinOp，他就会调用visit_BinOp方法；如果传递的类型是Num，他就会调用visit_Num方法，以此类推。&lt;/p&gt;
+
+&lt;p&gt;花一些时间学习这一方法（python标准库模块ast使用了相同的机制来访问节点），我们可以在将来用更多新的visit_NodeType方法来扩展我们的解释器。&lt;/p&gt;
+
+&lt;p&gt;generic_visit方法是抛出一个异常，表明它遇到一个节点，在实现类有没有相应的visit&lt;em&gt;NodeType方法（No visit&lt;/em&gt;{} method）。&lt;/p&gt;
+
+&lt;p&gt;现在，我们来手动构建 2 * 7 + 3 的AST，并把他放到解释器里面运行，看看visit方法怎么去计算表达式。下面是在Python Shell的操作：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; from spi import Token, MUL, PLUS, INTEGER, Num, BinOp
+&amp;gt;&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; mul_token = Token(MUL, &#39;*&#39;)
+&amp;gt;&amp;gt;&amp;gt; plus_token = Token(PLUS, &#39;+&#39;)
+&amp;gt;&amp;gt;&amp;gt; mul_node = BinOp(
+...     left=Num(Token(INTEGER, 2)),
+...     op=mul_token,
+...     right=Num(Token(INTEGER, 7))
+... )
+&amp;gt;&amp;gt;&amp;gt; add_node = BinOp(
+...     left=mul_node,
+...     op=plus_token,
+...     right=Num(Token(INTEGER, 3))
+... )
+&amp;gt;&amp;gt;&amp;gt; from spi import Interpreter
+&amp;gt;&amp;gt;&amp;gt; inter = Interpreter(None)
+&amp;gt;&amp;gt;&amp;gt; inter.visit(add_node)
+17
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;正如你所见，我把表达式的根节点传递给visit方法，他会触发树的遍历，分发调用到Interpreter类中相应的方法，并生成结果。&lt;/p&gt;
+
+&lt;p&gt;好了，为了方便，下面给出解释器的完整代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;quot;&amp;quot;&amp;quot; SPI - Simple Pascal Interpreter &amp;quot;&amp;quot;&amp;quot;
+
+###############################################################################
+#                                                                             #
+#  LEXER                                                                      #
+#                                                                             #
+###############################################################################
+
+# Token types
+#
+# EOF (end-of-file) token is used to indicate that
+# there is no more input left for lexical analysis
+INTEGER, PLUS, MINUS, MUL, DIV, LPAREN, RPAREN, EOF = (
+    &#39;INTEGER&#39;, &#39;PLUS&#39;, &#39;MINUS&#39;, &#39;MUL&#39;, &#39;DIV&#39;, &#39;(&#39;, &#39;)&#39;, &#39;EOF&#39;
+)
+
+
+class Token(object):
+    def __init__(self, type, value):
+        self.type = type
+        self.value = value
+
+    def __str__(self):
+        &amp;quot;&amp;quot;&amp;quot;String representation of the class instance.
+
+        Examples:
+            Token(INTEGER, 3)
+            Token(PLUS, &#39;+&#39;)
+            Token(MUL, &#39;*&#39;)
+        &amp;quot;&amp;quot;&amp;quot;
+        return &#39;Token({type}, {value})&#39;.format(
+            type=self.type,
+            value=repr(self.value)
+        )
+
+    def __repr__(self):
+        return self.__str__()
+
+
+class Lexer(object):
+    def __init__(self, text):
+        # client string input, e.g. &amp;quot;4 + 2 * 3 - 6 / 2&amp;quot;
+        self.text = text
+        # self.pos is an index into self.text
+        self.pos = 0
+        self.current_char = self.text[self.pos]
+
+    def error(self):
+        raise Exception(&#39;Invalid character&#39;)
+
+    def advance(self):
+        &amp;quot;&amp;quot;&amp;quot;Advance the `pos` pointer and set the `current_char` variable.&amp;quot;&amp;quot;&amp;quot;
+        self.pos += 1
+        if self.pos &amp;gt; len(self.text) - 1:
+            self.current_char = None  # Indicates end of input
+        else:
+            self.current_char = self.text[self.pos]
+
+    def skip_whitespace(self):
+        while self.current_char is not None and self.current_char.isspace():
+            self.advance()
+
+    def integer(self):
+        &amp;quot;&amp;quot;&amp;quot;Return a (multidigit) integer consumed from the input.&amp;quot;&amp;quot;&amp;quot;
+        result = &#39;&#39;
+        while self.current_char is not None and self.current_char.isdigit():
+            result += self.current_char
+            self.advance()
+        return int(result)
+
+    def get_next_token(self):
+        &amp;quot;&amp;quot;&amp;quot;Lexical analyzer (also known as scanner or tokenizer)
+
+        This method is responsible for breaking a sentence
+        apart into tokens. One token at a time.
+        &amp;quot;&amp;quot;&amp;quot;
+        while self.current_char is not None:
+
+            if self.current_char.isspace():
+                self.skip_whitespace()
+                continue
+
+            if self.current_char.isdigit():
+                return Token(INTEGER, self.integer())
+
+            if self.current_char == &#39;+&#39;:
+                self.advance()
+                return Token(PLUS, &#39;+&#39;)
+
+            if self.current_char == &#39;-&#39;:
+                self.advance()
+                return Token(MINUS, &#39;-&#39;)
+
+            if self.current_char == &#39;*&#39;:
+                self.advance()
+                return Token(MUL, &#39;*&#39;)
+
+            if self.current_char == &#39;/&#39;:
+                self.advance()
+                return Token(DIV, &#39;/&#39;)
+
+            if self.current_char == &#39;(&#39;:
+                self.advance()
+                return Token(LPAREN, &#39;(&#39;)
+
+            if self.current_char == &#39;)&#39;:
+                self.advance()
+                return Token(RPAREN, &#39;)&#39;)
+
+            self.error()
+
+        return Token(EOF, None)
+
+
+###############################################################################
+#                                                                             #
+#  PARSER                                                                     #
+#                                                                             #
+###############################################################################
+
+class AST(object):
+    pass
+
+
+class BinOp(AST):
+    def __init__(self, left, op, right):
+        self.left = left
+        self.token = self.op = op
+        self.right = right
+
+
+class Num(AST):
+    def __init__(self, token):
+        self.token = token
+        self.value = token.value
+
+
+class Parser(object):
+    def __init__(self, lexer):
+        self.lexer = lexer
+        # set current token to the first token taken from the input
+        self.current_token = self.lexer.get_next_token()
+
+    def error(self):
+        raise Exception(&#39;Invalid syntax&#39;)
+
+    def eat(self, token_type):
+        # compare the current token type with the passed token
+        # type and if they match then &amp;quot;eat&amp;quot; the current token
+        # and assign the next token to the self.current_token,
+        # otherwise raise an exception.
+        if self.current_token.type == token_type:
+            self.current_token = self.lexer.get_next_token()
+        else:
+            self.error()
+
+    def factor(self):
+        &amp;quot;&amp;quot;&amp;quot;factor : INTEGER | LPAREN expr RPAREN&amp;quot;&amp;quot;&amp;quot;
+        token = self.current_token
+        if token.type == INTEGER:
+            self.eat(INTEGER)
+            return Num(token)
+        elif token.type == LPAREN:
+            self.eat(LPAREN)
+            node = self.expr()
+            self.eat(RPAREN)
+            return node
+
+    def term(self):
+        &amp;quot;&amp;quot;&amp;quot;term : factor ((MUL | DIV) factor)*&amp;quot;&amp;quot;&amp;quot;
+        node = self.factor()
+
+        while self.current_token.type in (MUL, DIV):
+            token = self.current_token
+            if token.type == MUL:
+                self.eat(MUL)
+            elif token.type == DIV:
+                self.eat(DIV)
+
+            node = BinOp(left=node, op=token, right=self.factor())
+
+        return node
+
+    def expr(self):
+        &amp;quot;&amp;quot;&amp;quot;
+        expr   : term ((PLUS | MINUS) term)*
+        term   : factor ((MUL | DIV) factor)*
+        factor : INTEGER | LPAREN expr RPAREN
+        &amp;quot;&amp;quot;&amp;quot;
+        node = self.term()
+
+        while self.current_token.type in (PLUS, MINUS):
+            token = self.current_token
+            if token.type == PLUS:
+                self.eat(PLUS)
+            elif token.type == MINUS:
+                self.eat(MINUS)
+
+            node = BinOp(left=node, op=token, right=self.term())
+
+        return node
+
+    def parse(self):
+        return self.expr()
+
+
+###############################################################################
+#                                                                             #
+#  INTERPRETER                                                                #
+#                                                                             #
+###############################################################################
+
+class NodeVisitor(object):
+    def visit(self, node):
+        method_name = &#39;visit_&#39; + type(node).__name__
+        visitor = getattr(self, method_name, self.generic_visit)
+        return visitor(node)
+
+    def generic_visit(self, node):
+        raise Exception(&#39;No visit_{} method&#39;.format(type(node).__name__))
+
+
+class Interpreter(NodeVisitor):
+    def __init__(self, parser):
+        self.parser = parser
+
+    def visit_BinOp(self, node):
+        if node.op.type == PLUS:
+            return self.visit(node.left) + self.visit(node.right)
+        elif node.op.type == MINUS:
+            return self.visit(node.left) - self.visit(node.right)
+        elif node.op.type == MUL:
+            return self.visit(node.left) * self.visit(node.right)
+        elif node.op.type == DIV:
+            return self.visit(node.left) / self.visit(node.right)
+
+    def visit_Num(self, node):
+        return node.value
+
+    def interpret(self):
+        tree = self.parser.parse()
+        return self.visit(tree)
+
+
+def main():
+    while True:
+        try:
+            try:
+                text = raw_input(&#39;spi&amp;gt; &#39;)
+            except NameError:  # Python3
+                text = input(&#39;spi&amp;gt; &#39;)
+        except EOFError:
+            break
+        if not text:
+            continue
+
+        lexer = Lexer(text)
+        parser = Parser(lexer)
+        interpreter = Interpreter(parser)
+        result = interpreter.interpret()
+        print(result)
+
+
+if __name__ == &#39;__main__&#39;:
+    main()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;把上面的代码保存到spi.py或者你可以在&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/spi.py&#34;&gt;Github&lt;/a&gt;直接下载。来试试吧，看看这个基于树结构的新解释器正确的计算数学表达式。&lt;/p&gt;
+
+&lt;p&gt;下面是一些例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;$ python spi.py
+spi&amp;gt; 7 + 3 * (10 / (12 / (3 + 1) - 1))
+22
+spi&amp;gt; 7 + 3 * (10 / (12 / (3 + 1) - 1)) / (2 + 3) - 5 - 3 + (8)
+10
+spi&amp;gt; 7 + (((3 + 2)))
+12
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;今天，你学了分析树，AST，如何构建AST，如何遍历表达式AST。你还修改了解析器和解释器的代码，并将他们拆分开了。当前的lexer（词法分析器），parer（解析器），interpreter（解释器）的接口像下面这样：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_pipeline.png&#34; alt=&#34;lsbasi_part7_pipeline.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从上图可以看到，解析器从词法分析器获取token，生成AST作为解释器的输入，解释器遍历和解释AST。&lt;/p&gt;
+
+&lt;p&gt;这些就是今天的内容，在结束前我简单的说下recursive-descent parsers（递归下降分析器），这里只给他一个定义，我在后面的系列会详细的来讨论。所以，这里就是他的定义：一个递归下降分析器是一个自顶向下的解析器，使用递归来处理输入。自顶向下表示先构建分析树的顶部节点，然后逐步的构建较低层的节点。&lt;/p&gt;
+
+&lt;p&gt;下面是练习时间 :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_exercise.png&#34; alt=&#34;lsbasi_part7_exercise.png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;写一个转换器（提示：节点访问器），输入一个算术表达式，打印出后缀表示法，也被称为&lt;a href=&#34;https://zh.wikipedia.org/zh/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E7%A4%BA%E6%B3%95&#34;&gt;逆波兰表示法&lt;/a&gt;（RPN）。例如：输入 (5 + 3) * 12 / 3，应该输出 5 3 + 12 * 3 /。看&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/ex1.py&#34;&gt;答案&lt;/a&gt;前先自己尝试解决他。&lt;/li&gt;
+&lt;li&gt;写一个转换器（提示：节点访问器），输入一个算术表达式，输出LISP风格，2 + 3 变成 (+ 2 3)； (2 + 3 * 5) 会变成 (+ 2 (* 3 5))。同样的，看&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/ex2.py&#34;&gt;答案&lt;/a&gt;前先自己尝试解决他。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在下篇文章，我们将增加赋值和一元操作符正在成长的Pascal解释器。在那之前，好好生活，再见。&lt;/p&gt;
+
+&lt;p&gt;P.S. 我给出了一个Rust实现的解释器在GitHub。这是我学习Rust的一种方法，所以你得注意代码可能不那么老道。欢迎提出如何写的更好的评论和建议。&lt;/p&gt;
 </description>
     </item>
     
