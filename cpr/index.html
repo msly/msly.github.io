@@ -48,7 +48,14 @@
         for (var i=0; i<ay.length; ++i){
             if (ay[i].indexOf(":") != -1){
                 items = ay[i].split(":");
-                outtext += "{ \"" + trim(items[0]) + "\", \"" + trim(items[1]) + "\" },\n";
+                var key = trim(items[0]);
+                var value = trim(items[1]);
+                if (key == "User-Agent"){
+                    value = "STR_UserAgent";
+                } else if (key == "Cookie"){
+                    value = "STR_Cookie";
+                }
+                outtext += "{ \"" + key + "\", \"" + value + "\" },\n";
             }
         }
         document.getElementById("outtext").value = outtext;
