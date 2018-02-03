@@ -43,9 +43,31 @@
     }
     function trans() {
         var intext = document.getElementById("intext").value;
-        var outtext = "";
+        var outtext = "auto r = ";
         var ay = intext.split("\n");
-        for (var i=0; i<ay.length; ++i){
+
+        // 判断第一行是否GET POST
+        var i = 0;
+        var first = ay[0];
+        if (first.indexOf(" ") != -1){
+            items = first.split(" ");
+            if (items[0] == "GET"){
+                outtext += "cpr::Get(\n" 
+                + "cpr::Url{ \""+ items[1] +"\" },\n";
+                i = 1;
+            } else if (items[0] == "POST"){
+                outtext += "cpr::Post(\n"
+                    + "cpr::Url{ \"" + items[1] + "\" },\n"
+                    + "cpr::Body{ fmt::format(\""+ ay[ay.length - 1] +"\") },\n";
+                i = 1;
+            } else {
+                outtext += "cpr::Get(\n"
+                    + "cpr::Url{ \"\" },\n";
+            }
+        }
+
+        var header = "";
+        for (; i<ay.length; ++i){
             if (ay[i].indexOf(":") != -1){
                 items = ay[i].split(":");
                 var key = trim(items[0]);
@@ -55,9 +77,16 @@
                 } else if (key == "Cookie"){
                     value = "STR_Cookie";
                 }
-                outtext += "{ \"" + key + "\", " + value + " },\n";
+                header += "{ \"" + key + "\", " + value + " },\n";
             }
         }
+        if (header.length > 0){
+            outtext += "cpr::Header{\n" 
+            + header.substring(0, header.length-2) + "\n"
+            + "}";
+        }
+
+        outtext += ");"
         document.getElementById("outtext").value = outtext;
     }
     </script>
@@ -82,7 +111,7 @@
                         <textarea id="outtext" class="bginput" style="width:700px;height: 180px;resize: vertical;"></textarea>
                         <br>
                         <p class="title" style="border-top: 1px solid rgb(221, 221, 221); margin-top: 20px;">cpr头转换说明</p>
-                        <p style="padding: 0px 10px 0px 10px; font-size: 14px;">　　cpr头转换</p>
+                        <p style="padding: 0px 10px 0px 10px; font-size: 14px;">　　兼容GET和POST,直接从fiddler中拷贝即可</p>
                         <p style="padding: 0px 10px 0px 10px; font-size: 14px;">　　</p>
                     </div>
                 </form>
