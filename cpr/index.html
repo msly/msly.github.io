@@ -1,0 +1,90 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Base64编码,Base64解码" />
+    <title>cpr头转换</title>
+    <style>
+        P {
+            text-align: justify;
+        }
+
+        .bginput,
+        select {
+            color: #000000;
+            vertical-align: middle;
+            padding: 2px;
+            border: 1px solid #BAC0C3;
+            background: #F9FBFD;
+        }
+
+        .button {
+            font-size: 16px;
+            font-family: "Microsoft Yahei", "微软雅黑", SimSun, "宋体";
+            margin-right: 10px;
+            border-radius: 3px;
+            display: inline-block !important;
+            padding: 5px 20px;
+            float: left;
+        }
+
+        .title {
+            border-bottom: 1px solid #DDD;
+            background: #FAFAFA none repeat scroll 0% 0%;
+            padding: 0px 15px;
+            height: 36px;
+            line-height: 36px;
+            margin-top: 0px;
+        }
+    </style>
+    <script>
+    function trim(str){
+        return str.replace(/^\s+|\s+$/g, "");
+    }
+    function trans() {
+        var intext = document.getElementById("intext").value;
+        var outtext = "";
+        var ay = intext.split("\n");
+        for (var i=0; i<ay.length; ++i){
+            if (ay[i].indexOf(":") != -1){
+                items = ay[i].split(":");
+                outtext += "{ \"" + trim(items[0]) + "\", \"" + trim(items[1]) + "\" },\n";
+            }
+        }
+        document.getElementById("outtext").value = outtext;
+    }
+    </script>
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" style="background-color: rgb(245, 245, 245);font-family: 微软雅黑;">
+    <table border="0" cellspacing="0" cellpadding="0" height="100%" style="margin-left: auto; margin-right: auto;border: 1px solid #DDD;margin-top: 20px;width: 720px;height: 690px;background-color: #FFF;">
+        <tr>
+            <td valign="top" align=center>
+                <form name="form1" method="post" action="">
+                    <div>
+                        <p class="title">cpr头转换</p>
+                        <span style="float: left; padding: 0px 0px 5px 10px;font-size: 14px;">请输入要进行转换的头：</span>
+                        <br>
+                        <textarea id="intext" name="text1" class="bginput" style="width:700px;height: 180px;resize: vertical;"></textarea>
+                        <div style="padding: 10px 0px 25px 10px;">
+                            <input type="button" onclick="trans()" name="button" class="button" value="转换" />
+                        </div>
+                        <br>
+                        <span style="float: left; padding: 0px 0px 5px 10px;font-size: 14px;">转换结果：</span>
+                        <br>
+                        <textarea id="outtext" class="bginput" style="width:700px;height: 180px;resize: vertical;"></textarea>
+                        <br>
+                        <p class="title" style="border-top: 1px solid rgb(221, 221, 221); margin-top: 20px;">cpr头转换说明</p>
+                        <p style="padding: 0px 10px 0px 10px; font-size: 14px;">　　cpr头转换</p>
+                        <p style="padding: 0px 10px 0px 10px; font-size: 14px;">　　</p>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: center; font-size: 13px; margin-top: 5px;">Copyright
+        <span style="font-size:12px;font-family:Arial, Helvetica, sans-serif;">&#169;</span> 2018
+    </div>
+</body>
+
+</html>
