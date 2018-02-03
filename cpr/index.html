@@ -49,13 +49,13 @@
             if (ay[i].indexOf(":") != -1){
                 items = ay[i].split(":");
                 var key = trim(items[0]);
-                var value = trim(items[1]);
+                var value = "\"" + trim(ay[i].substr(key.length + 1)) + "\"";
                 if (key == "User-Agent"){
                     value = "STR_UserAgent";
                 } else if (key == "Cookie"){
                     value = "STR_Cookie";
                 }
-                outtext += "{ \"" + key + "\", \"" + value + "\" },\n";
+                outtext += "{ \"" + key + "\", " + value + " },\n";
             }
         }
         document.getElementById("outtext").value = outtext;
