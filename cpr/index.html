@@ -79,6 +79,8 @@
                     value = "STR_UserAgent";
                 } else if (key == "Cookie"){
                     value = "STR_Cookie";
+                } else if (key == "Content-Length"){
+                    continue;
                 }
                 header += "{ \"" + key + "\", " + value + " },\n";
             }
