@@ -53,16 +53,19 @@
             items = first.split(" ");
             if (items[0] == "GET"){
                 outtext += "cpr::Get(\n" 
-                + "cpr::Url{ \""+ items[1] +"\" },\n";
+                + "cpr::Url{ \""+ items[1] +"\" },\n"
+                + "cpr::VerifySsl{ false },\n";
                 i = 1;
             } else if (items[0] == "POST"){
                 outtext += "cpr::Post(\n"
                     + "cpr::Url{ \"" + items[1] + "\" },\n"
+                    + "cpr::VerifySsl{ false },\n"
                     + "cpr::Body{ fmt::format(\""+ ay[ay.length - 1] +"\") },\n";
                 i = 1;
             } else {
                 outtext += "cpr::Get(\n"
-                    + "cpr::Url{ \"\" },\n";
+                    + "cpr::Url{ \"\" },\n"
+                    + "cpr::VerifySsl{ false },\n";
             }
         }
 
