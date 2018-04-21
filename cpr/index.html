@@ -131,7 +131,8 @@
                 if (key == "User-Agent") {
                     value = "STR_UserAgent";
                 } else if (key == "Cookie") {
-                    value = "STR_Cookie";
+                    //value = "STR_Cookie";
+                    continue;
                 } else if (key == "Content-Length") {
                     continue;
                 }
@@ -143,7 +144,7 @@
                 + header.substring(0, header.length - 2) + "\n"
                 + "});\n";
         }
-        outtext += "session.SetCookieFile(cpr::CookieFile{  });\n";
+        outtext += "session.SetCookieFile(cpr::CookieFile{ STR_Cookie });\n";
         if (isPost){
             outtext += "auto r = session.Post();"
         } else {
