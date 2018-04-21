@@ -149,6 +149,7 @@
         } else {
             outtext += "auto r = session.Get();"
         }
+        outtext += "LOG_INFO_CPR(r, \"\");";
         
         document.getElementById("outtext").value = outtext;
     }
