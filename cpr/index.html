@@ -146,9 +146,9 @@
         }
         outtext += "session.SetCookieFile(cpr::CookieFile{ STR_Cookie });\n";
         if (isPost){
-            outtext += "auto r = session.Post();"
+            outtext += "auto r = session.Post();\n"
         } else {
-            outtext += "auto r = session.Get();"
+            outtext += "auto r = session.Get();\n"
         }
         outtext += "LOG_INFO_CPR(r, \"\");";
         
