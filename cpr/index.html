@@ -144,12 +144,13 @@
                 + header.substring(0, header.length - 2) + "\n"
                 + "});\n";
         }
-        outtext += "session.SetCookieFile(cpr::CookieFile{ STR_Cookie });\n";
+        outtext += "session.SetCookies(cprcookies);\n";
         if (isPost){
             outtext += "auto r = session.Post();\n"
         } else {
             outtext += "auto r = session.Get();\n"
         }
+        outtext += "utils::mergeCookie(cprcookies, r.cookies);\n";
         outtext += "LOG_INFO_CPR(r, \"\");";
         
         document.getElementById("outtext").value = outtext;
