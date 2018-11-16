@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>鼠标双击测试</title>
+    <meta name="description" content="https://www.apieye.com/679.html" />
+</head>
+
+<body>
+    <input type='button' onclick='testMouse();' value='双击测试' />
+    <p></p>
+    <div></div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var i = 0;
+        var lastClick = 0;
+        var ok = 0;
+        var error = 0;
+        function testMouse() {
+            i++;
+            nowTime = Math.round(new Date().getTime());
+            clickTime = lastClick == 0 ? 0 : (nowTime - lastClick);
+            lastClick = nowTime;
+            if (clickTime < 120 && clickTime > 0) {
+                is_doubleClick = "疑似双击";
+                error++;
+            } else {
+                is_doubleClick = "正常";
+                ok++;
+            }
+            jQuery("div").prepend("点击第" + i + "次 间隔时间:" + clickTime + "毫秒 " + is_doubleClick + "<br/>");
+            jQuery("p").html("正常" + ok + "次 双击" + error + "次 错误率" + Math.round(error / ok * 10000) / 100 + "%");
+        }
+    </script>
+</body>
+
+</html>
