@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Home</title>
-    <link>http://msly.github.io/post/</link>
+    <link>https://msly.github.io/post/</link>
     <description>Recent content in Posts on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,14 +10,14 @@
     <webMaster>msly.2008@gmail.com (msly)</webMaster>
     <copyright>(c) 2016 copyright. Hugo [hyde-y]　code with &lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt;</copyright>
     <lastBuildDate>Fri, 20 Oct 2023 22:52:24 +0800</lastBuildDate>
-    <atom:link href="http://msly.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://msly.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>威海旅游记录</title>
-      <link>http://msly.github.io/2023/10/20/%E5%A8%81%E6%B5%B7%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/</link>
+      <link>https://msly.github.io/2023/10/20/%E5%A8%81%E6%B5%B7%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Fri, 20 Oct 2023 22:52:24 +0800</pubDate>
       <author>msly.2008@gmail.com (msly)</author>
-      <guid>http://msly.github.io/2023/10/20/%E5%A8%81%E6%B5%B7%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://msly.github.io/2023/10/20/%E5%A8%81%E6%B5%B7%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/</guid>
       <description>
 
 &lt;h3 id=&#34;前期准备&#34;&gt;前期准备&lt;/h3&gt;
@@ -33,7 +33,7 @@
 &lt;h3 id=&#34;租车&#34;&gt;租车&lt;/h3&gt;
 
 &lt;p&gt;坐车到威海站，可以到韩乐坊租电动车，大约40元/天，可以铁塔换电无限续航。&lt;br /&gt;
-&lt;img src=&#34;http://msly.github.io/images/weihai-travel/tieta.png&#34; alt=&#34;铁塔换电&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://msly.github.io/images/weihai-travel/tieta.png&#34; alt=&#34;铁塔换电&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;路线&#34;&gt;路线&lt;/h3&gt;
 
@@ -51,10 +51,10 @@
     
     <item>
       <title>PlantsVsZombies存档修改</title>
-      <link>http://msly.github.io/2023/08/09/plantsvszombies%E5%AD%98%E6%A1%A3%E4%BF%AE%E6%94%B9/</link>
+      <link>https://msly.github.io/2023/08/09/plantsvszombies%E5%AD%98%E6%A1%A3%E4%BF%AE%E6%94%B9/</link>
       <pubDate>Wed, 09 Aug 2023 23:38:58 +0800</pubDate>
       <author>msly.2008@gmail.com (msly)</author>
-      <guid>http://msly.github.io/2023/08/09/plantsvszombies%E5%AD%98%E6%A1%A3%E4%BF%AE%E6%94%B9/</guid>
+      <guid>https://msly.github.io/2023/08/09/plantsvszombies%E5%AD%98%E6%A1%A3%E4%BF%AE%E6%94%B9/</guid>
       <description>&lt;p&gt;存档目录在 C:\ProgramData\PopCap Games\PlantsVsZombies\userdata&lt;/p&gt;
 
 &lt;p&gt;文件user1.dat&lt;/p&gt;
@@ -66,16 +66,16 @@
 &lt;li&gt;第8，9字节对应 游戏金币数/10， 也就是这里的150代表游戏的1500，如果要改金钱到10w(0x2710), 对应字节为 10 27&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/plantsvszombie/p1.jpg&#34; alt=&#34;p1.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/plantsvszombie/p1.jpg&#34; alt=&#34;p1.jpg&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>[译]自己动手编写一个简单的解释器 Part 7</title>
-      <link>http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</link>
+      <link>https://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</link>
       <pubDate>Thu, 07 Apr 2016 11:44:37 +0800</pubDate>
       <author>msly.2008@gmail.com (msly)</author>
-      <guid>http://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</guid>
+      <guid>https://msly.github.io/2016/04/07/%E8%AF%91%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8-part-7/</guid>
       <description>&lt;p&gt;原文：&lt;a href=&#34;https://ruslanspivak.com/lsbasi-part7/&#34;&gt;Let’s Build A Simple Interpreter. Part 7.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;C++代码：&lt;a href=&#34;https://github.com/msly/compiler/tree/master/second&#34;&gt;https://github.com/msly/compiler/tree/master/second&lt;/a&gt;&lt;/p&gt;
@@ -86,7 +86,7 @@
 
 &lt;p&gt;事实证明，树是一个非常合适的数据结构用来表示IR。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_realtree.png&#34; alt=&#34;lsbasi_part7_realtree.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;让我们来快速了解下树的一些特性：&lt;/p&gt;
 
@@ -105,7 +105,7 @@
 
 &lt;p&gt;下面是表达式2 * 7 + 3用树的表示：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_tree_terminology.png&#34; alt=&#34;lsbasi_part7_tree_terminology.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_tree_terminology.png&#34; alt=&#34;lsbasi_part7_tree_terminology.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;我们把这个系列文章中使用的IR（中间表示）叫做抽象语法树（AST）。在我们深入研究AST之前，先简单的谈谈分析树（parse trees）。虽然我们不在解释器和编译器中使用分析树，他可以帮助你了解你的解析器通过可视化的执行轨迹来解析输入。我们也将与AST进行比较，从而明白为什么AST比分析树更适合中间表示。&lt;/p&gt;
 
@@ -115,7 +115,7 @@
 
 &lt;p&gt;让我们看一下表达式 2 * 7 + 3 的分析树。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_parsetree_01.png&#34; alt=&#34;lsbasi_part7_parsetree_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_parsetree_01.png&#34; alt=&#34;lsbasi_part7_parsetree_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;在上图中能看到:&lt;/p&gt;
 
@@ -138,7 +138,7 @@
 
 &lt;p&gt;下面是工具生成的表达式 14 + 2 * 3 -6 / 2 的分析树图片。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_genptdot_01.png&#34; alt=&#34;lsbasi_part7_genptdot_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_genptdot_01.png&#34; alt=&#34;lsbasi_part7_genptdot_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;你可以试试不同的表达式，看看表达式对应的分析树是什么样子的。&lt;/p&gt;
 
@@ -146,7 +146,7 @@
 
 &lt;p&gt;通过观察表达式 2 * 7 + 3 的AST和分析树，开始我们的讨论吧：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_01.png&#34; alt=&#34;lsbasi_part7_ast_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_01.png&#34; alt=&#34;lsbasi_part7_ast_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;你能从上面的图片看到，AST抓住了表达式的本质却更精简。&lt;/p&gt;
 
@@ -165,7 +165,7 @@
 
 &lt;p&gt;我已经提过，AST比分析树更紧凑。我们来看一下表达式 7 + ((2 + 3))的AST和分析树。你可以看到AST比分析树小很多，但始终抓到了输入的本质。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_02.png&#34; alt=&#34;lsbasi_part7_ast_02.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_02.png&#34; alt=&#34;lsbasi_part7_ast_02.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;到目前为止，一切看似都很好，但怎么在AST中编码操作符的优先级？为了在AST中编码操作符优先级，换句话说，就是表示“X 发生在 Y 前面”，你只需要在树中把 X 放在 Y 下面的层级。在前面的图片中，你已经看到了吧。&lt;/p&gt;
 
@@ -173,11 +173,11 @@
 
 &lt;p&gt;在下面的图片中，左边那个表示 2 * 7 + 3，右边修改了优先级，把 7 + 3 放到括号里，表示 2 * (7 + 3)：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astprecedence_01.png&#34; alt=&#34;lsbasi_part7_astprecedence_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_astprecedence_01.png&#34; alt=&#34;lsbasi_part7_astprecedence_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;下面是表达式 1 + 2 + 3 + 4 + 5 的AST：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astprecedence_02.png&#34; alt=&#34;lsbasi_part7_astprecedence_02.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_astprecedence_02.png&#34; alt=&#34;lsbasi_part7_astprecedence_02.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;从上面的图片可以看到，优先级越高的操作符最终在树中的位置更低。&lt;/p&gt;
 
@@ -230,7 +230,7 @@
 
 &lt;p&gt;下面是我们的新节点类定义的AST，图片遵循上面的手动创建过程：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astimpl_01.png&#34; alt=&#34;lsbasi_part7_astimpl_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_astimpl_01.png&#34; alt=&#34;lsbasi_part7_astimpl_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;下面是我们修改的解析器代码，识别输入（算术表达式）并返回一个AST作为结果。&lt;/p&gt;
 
@@ -324,7 +324,7 @@ class Parser(object):
 
 &lt;p&gt;从上面的代码你可以看到，AST构建节点的方式，每个BinOp节点采用节点变量的当前值作为他的左节点，调用term或factor的结果作为右节点。所以他有效的把节点下推到左边，下面的表达式1 + 2 + 3 + 4 + 5就是一个很好的例子。这里是一个可视化表示解析器如何逐步建立了表达式1 + 2 + 3 + 4 + 5的AST：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_astimpl_02.png&#34; alt=&#34;lsbasi_part7_astimpl_02.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_astimpl_02.png&#34; alt=&#34;lsbasi_part7_astimpl_02.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;为了帮助你看到各种的算术表达式的AST，我写了一个小工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genastdot.py&#34;&gt;genastdot.py&lt;/a&gt;，把算数表达式作为第一个参数，最后会通过dot工具生成一个画着AST的dot文件（dot是&lt;a href=&#34;http://graphviz.org/&#34;&gt;Graphviz&lt;/a&gt;的一部分，需要安装Graphviz才能运行）。下面是生成AST的一个命令：&lt;/p&gt;
 
@@ -332,27 +332,27 @@ class Parser(object):
   ast.dot &amp;amp;&amp;amp; dot -Tpng -o ast.png ast.dot
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_genastdot_01.png&#34; alt=&#34;lsbasi_part7_genastdot_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_genastdot_01.png&#34; alt=&#34;lsbasi_part7_genastdot_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这是值得你花时间来写一些算术表达式，手动画出他们的AST，然后用工具&lt;a href=&#34;https://github.com/rspivak/lsbasi/blob/master/part7/python/genastdot.py&#34;&gt;genastdot.py&lt;/a&gt;生成的进行验证，这将帮助你更好的理解解析器是如何构建AST的。&lt;/p&gt;
 
 &lt;p&gt;好了，下面是表达式 2 * 7 + 3 的AST:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_walking_01.png&#34; alt=&#34;lsbasi_part7_ast_walking_01.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_walking_01.png&#34; alt=&#34;lsbasi_part7_ast_walking_01.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;如何来遍历树从而正确计算树所代表的表达式呢？你可以使用postorder traversal（后序遍历）-深度优先遍历的一个特例，从根节点开始，按从左到右的方式递归的访问子节点。后序遍历访问节点尽可能快的速度远离根节点。&lt;/p&gt;
 
 &lt;p&gt;下面是后序遍历的伪代码，&amp;lt;&amp;lt; postorder actions &amp;gt;&amp;gt;代表一个BinOp节点的运算符操作（进行+-*/运算）或一个Num节点的求值操作(返回Num节点的值)：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_visit_postorder.png&#34; alt=&#34;lsbasi_part7_ast_visit_postorder.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_visit_postorder.png&#34; alt=&#34;lsbasi_part7_ast_visit_postorder.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;我们的解释器使用后序遍历的原因，第一，我们需要先计算更低层的节点，因为他们有更高的优先级；第二，我们需要先计算操作数，才能使用操作符计算结果。在下面的图片，你可以看到，后序遍历我们首先计算表达式 2 * 7，然后才计算 14 + 3，得到正确的结果，17：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_walking_02.png&#34; alt=&#34;lsbasi_part7_ast_walking_02.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_walking_02.png&#34; alt=&#34;lsbasi_part7_ast_walking_02.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;为了完整起见，我提一下树的三种深度优先遍历：preorder traversal（前序遍历）, inorder traversal（中序遍历）, 和 postorder traversal（后序遍历）。名字的来源于你在遍历代码放actions（具体运算）的位置。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_visit_generic.png&#34; alt=&#34;lsbasi_part7_ast_visit_generic.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_ast_visit_generic.png&#34; alt=&#34;lsbasi_part7_ast_visit_generic.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;有时你可能需要在上图所示的三个位置都需要执行某些操作。你会看到这样的一些例子在本文的&lt;a href=&#34;https://github.com/rspivak/lsbasi/tree/master/part7&#34;&gt;源码库&lt;/a&gt;。&lt;/p&gt;
 
@@ -728,7 +728,7 @@ spi&amp;gt; 7 + (((3 + 2)))
 
 &lt;p&gt;今天，你学了分析树，AST，如何构建AST，如何遍历表达式AST。你还修改了解析器和解释器的代码，并将他们拆分开了。当前的lexer（词法分析器），parer（解析器），interpreter（解释器）的接口像下面这样：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_pipeline.png&#34; alt=&#34;lsbasi_part7_pipeline.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_pipeline.png&#34; alt=&#34;lsbasi_part7_pipeline.png&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;从上图可以看到，解析器从词法分析器获取token，生成AST作为解释器的输入，解释器遍历和解释AST。&lt;/p&gt;
 
@@ -736,7 +736,7 @@ spi&amp;gt; 7 + (((3 + 2)))
 
 &lt;p&gt;下面是练习时间 :)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://msly.github.io/images/lsbasi-part7/lsbasi_part7_exercise.png&#34; alt=&#34;lsbasi_part7_exercise.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://msly.github.io/images/lsbasi-part7/lsbasi_part7_exercise.png&#34; alt=&#34;lsbasi_part7_exercise.png&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;ul&gt;
